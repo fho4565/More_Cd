@@ -18,7 +18,7 @@ public class Player {
     public static void onServerStaring(RegisterCommandsEvent event) {
         CommandDispatcher<CommandSourceStack> dispatcher = event.getDispatcher();
         dispatcher.register(
-                Commands.literal("player")
+                Commands.literal("player").requires(s -> s.hasPermission(2))
                         .then(Commands.argument("player",EntityArgument.player())
                                 .then(Commands.literal("set").then(Commands.literal("build").then(Commands.argument("option", BoolArgumentType.bool()).executes(context -> {
                                     boolean option = BoolArgumentType.getBool(context, "option");

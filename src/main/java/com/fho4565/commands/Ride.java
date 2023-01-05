@@ -18,7 +18,7 @@ public class Ride {
     public static void onServerStaring(RegisterCommandsEvent event) {
         CommandDispatcher<CommandSourceStack> dispatcher = event.getDispatcher();
         dispatcher.register(
-                Commands.literal("ride")
+                Commands.literal("ride").requires(s -> s.hasPermission(2))
                         .then(Commands.argument("entity", EntityArgument.entity()).executes(context -> {
                             if(!Objects.equals(context.getSource().getEntity(), EntityArgument.getEntity(context, "entity"))){
                                 context.getSource().sendSuccess(new TextComponent("正在骑乘实体"), false);

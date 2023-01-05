@@ -19,7 +19,7 @@ public class Hurt {
     public static void onServerStaring(RegisterCommandsEvent event) {
         CommandDispatcher<CommandSourceStack> dispatcher = event.getDispatcher();
         dispatcher.register(
-                Commands.literal("hurt")
+                Commands.literal("hurt").requires(s -> s.hasPermission(2))
                         .then(Commands.argument("entity", EntityArgument.entities())
                                 .then(Commands.argument("damage", IntegerArgumentType.integer())
                                         .executes(context -> {
