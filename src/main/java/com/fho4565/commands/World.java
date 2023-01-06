@@ -18,9 +18,18 @@ public class World {
         CommandDispatcher<CommandSourceStack> dispatcher = event.getDispatcher();
         dispatcher.register(
                 Commands.literal("world")
-                        .then(Commands.literal("spawnX").executes(context -> context.getSource().getLevel().getLevelData().getXSpawn()))
-                        .then(Commands.literal("spawnY").executes(context -> context.getSource().getLevel().getLevelData().getYSpawn()))
-                        .then(Commands.literal("spawnZ").executes(context -> context.getSource().getLevel().getLevelData().getZSpawn()))
+                        .then(Commands.literal("spawnX").executes(context -> {
+                            context.getSource().sendSuccess(new TextComponent("当前世界出生点X坐标为："+context.getSource().getLevel().getLevelData().getXSpawn()),false);
+                            return context.getSource().getLevel().getLevelData().getXSpawn();
+                        }))
+                        .then(Commands.literal("spawnY").executes(context -> {
+                            context.getSource().sendSuccess(new TextComponent("当前世界出生点Y坐标为："+context.getSource().getLevel().getLevelData().getYSpawn()),false);
+                            return context.getSource().getLevel().getLevelData().getYSpawn();
+                        }))
+                        .then(Commands.literal("spawnZ").executes(context -> {
+                            context.getSource().sendSuccess(new TextComponent("当前世界出生点Z坐标为："+context.getSource().getLevel().getLevelData().getZSpawn()),false);
+                            return context.getSource().getLevel().getLevelData().getZSpawn();
+                        }))
                         .then(Commands.literal("version").executes(context -> {
                             String ver = context.getSource().getServer().getServerVersion();
                             String[] split = ver.split("\\.");
