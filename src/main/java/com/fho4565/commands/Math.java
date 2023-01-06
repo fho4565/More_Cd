@@ -36,8 +36,15 @@ public class Math {
                                                             context.getSource().sendSuccess(new TextComponent("结果为" + result), false);
                                                             return (int) result;
                                                         }))))))
-                        .then(Commands.literal("sqrt").then(Commands.argument("a", DoubleArgumentType.doubleArg()).executes(context -> {
-                            double result = java.lang.Math.sqrt(DoubleArgumentType.getDouble(context, "a"));
+                        .then(Commands.literal("sqrt")
+                                .then(Commands.argument("baseHolder",ScoreHolderArgument.scoreHolder())
+                                        .then(Commands.argument("baseScore", ObjectiveArgument.objective()).executes(context -> {
+                                            double result = java.lang.Math.sqrt(Utils.getScore(context.getSource(),ScoreHolderArgument.getName(context,"baseHolder"),ObjectiveArgument.getObjective(context,"baseScore")));
+                                            context.getSource().sendSuccess(new TextComponent("结果为" + result), false);
+                                            return (int) result;
+                                        })))
+                                .then(Commands.argument("baseNum", DoubleArgumentType.doubleArg()).executes(context -> {
+                            double result = java.lang.Math.sqrt(DoubleArgumentType.getDouble(context, "baseNum"));
                             context.getSource().sendSuccess(new TextComponent("结果为" + result), false);
                             return (int) result;
                         })))
