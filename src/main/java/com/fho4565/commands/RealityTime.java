@@ -10,7 +10,7 @@ public class RealityTime {
     public static void register()  {
         Calendar c = Calendar.getInstance();
         CommandRegister.dispatcher.register(
-                Commands.literal("realityTime").requires(s -> s.hasPermission(2))
+                Commands.literal("realityTime")
                         .then(Commands.literal("second").executes(context -> {
                             context.getSource().sendSuccess(new TextComponent("当前现实秒为："+ c.get(Calendar.SECOND)),false);
                             return c.get(Calendar.SECOND);

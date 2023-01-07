@@ -16,11 +16,13 @@ public class Random {
                     result.set(r.nextInt());
                     context.getSource().sendSuccess(new TextComponent("已生成随机数："+result.get()), false);
                     return result.get();
-                }).then(Commands.argument("minValue",IntegerArgumentType.integer()).executes(context -> {
+                })
+                        .then(Commands.argument("minValue",IntegerArgumentType.integer()).executes(context -> {
                     result.set(r.nextInt(IntegerArgumentType.getInteger(context,"minValue"),Integer.MAX_VALUE));
                     context.getSource().sendSuccess(new TextComponent("已生成随机数："+result.get()), false);
                     return result.get();
-                }).then(Commands.argument("maxValue",IntegerArgumentType.integer()).executes(context ->{
+                })
+                                .then(Commands.argument("maxValue",IntegerArgumentType.integer()).executes(context ->{
                     result.set(r.nextInt(IntegerArgumentType.getInteger(context,"minValue"),IntegerArgumentType.getInteger(context,"maxValue")));
                     context.getSource().sendSuccess(new TextComponent("已生成随机数："+result.get()), false);
                     return result.get();
