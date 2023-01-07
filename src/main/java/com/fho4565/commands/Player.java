@@ -19,7 +19,8 @@ public class Player {
         CommandDispatcher<CommandSourceStack> dispatcher = event.getDispatcher();
         dispatcher.register(
                 Commands.literal("player").requires(s -> s.hasPermission(2))
-                        .then(Commands.argument("player", EntityArgument.player()).then(Commands.literal("set")
+                        .then(Commands.argument("player", EntityArgument.player())
+                                .then(Commands.literal("set")
                                         .then(Commands.literal("fly").then(Commands.argument("option", BoolArgumentType.bool()).executes(context -> {
                                             boolean option = BoolArgumentType.getBool(context, "option");
                                             MutableComponent canFly = new TextComponent("玩家").append(EntityArgument.getPlayer(context, "player").getName()).append("现在可以飞行");
