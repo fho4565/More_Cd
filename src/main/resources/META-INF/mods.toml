@@ -7,7 +7,7 @@ version = "1.0"
 displayName = "More Command"
 authors = "fho4565"
 description = '''
-
+By fho4565
 '''
 # A dependency - use the . to indicate dependency for a specific modid. Dependencies are optional.
 [[dependencies.more_cd]] #optional
