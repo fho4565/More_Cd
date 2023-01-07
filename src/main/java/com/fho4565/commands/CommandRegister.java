@@ -20,5 +20,6 @@ public class CommandRegister {
         Ride.register();
         Run.register();
         World.register();
+        helpMcd.register();
     }
 }
