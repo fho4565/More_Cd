@@ -1,23 +1,15 @@
 package com.fho4565.commands;
 
-import com.mojang.brigadier.CommandDispatcher;
-import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
 import net.minecraft.network.chat.TextComponent;
-import net.minecraftforge.event.RegisterCommandsEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
 
 import java.util.Calendar;
 
 
-@Mod.EventBusSubscriber
 public class RealityTime {
-    @SubscribeEvent
-    public static void onServerStaring(RegisterCommandsEvent event) {
+    public static void register()  {
         Calendar c = Calendar.getInstance();
-        CommandDispatcher<CommandSourceStack> dispatcher = event.getDispatcher();
-        dispatcher.register(
+        CommandRegister.dispatcher.register(
                 Commands.literal("realityTime").requires(s -> s.hasPermission(2))
                         .then(Commands.literal("second").executes(context -> {
                             context.getSource().sendSuccess(new TextComponent("当前现实秒为："+ c.get(Calendar.SECOND)),false);

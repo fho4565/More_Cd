@@ -1,24 +1,16 @@
 package com.fho4565.commands;
 
 import com.fho4565.main.Utils;
-import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.DoubleArgumentType;
-import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
 import net.minecraft.commands.arguments.ObjectiveArgument;
 import net.minecraft.commands.arguments.ScoreHolderArgument;
 import net.minecraft.network.chat.TextComponent;
-import net.minecraftforge.event.RegisterCommandsEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
 
 
-@Mod.EventBusSubscriber
 public class Math {
-    @SubscribeEvent
-    public static void onServerStaring(RegisterCommandsEvent event) {
-        CommandDispatcher<CommandSourceStack> dispatcher = event.getDispatcher();
-        dispatcher.register(
+    public static void register() {
+        CommandRegister.dispatcher.register(
                 Commands.literal("math").requires(s -> s.hasPermission(2))
                         .then(Commands.literal("log")
                                 .then(Commands.argument("baseHolder", ScoreHolderArgument.scoreHolder())

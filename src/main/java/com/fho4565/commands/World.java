@@ -1,22 +1,14 @@
 package com.fho4565.commands;
 
-import com.mojang.brigadier.CommandDispatcher;
-import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
 import net.minecraft.network.chat.TextComponent;
-import net.minecraftforge.event.RegisterCommandsEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
 
 import java.util.Objects;
 
 
-@Mod.EventBusSubscriber
 public class World {
-    @SubscribeEvent
-    public static void onServerStaring(RegisterCommandsEvent event) {
-        CommandDispatcher<CommandSourceStack> dispatcher = event.getDispatcher();
-        dispatcher.register(
+    public static void register() {
+        CommandRegister.dispatcher.register(
                 Commands.literal("world")
                         .then(Commands.literal("spawnX").executes(context -> {
                             context.getSource().sendSuccess(new TextComponent("当前世界出生点X坐标为："+context.getSource().getLevel().getLevelData().getXSpawn()),false);

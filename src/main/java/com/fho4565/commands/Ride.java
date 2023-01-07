@@ -1,23 +1,15 @@
 package com.fho4565.commands;
 
-import com.mojang.brigadier.CommandDispatcher;
-import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
 import net.minecraft.commands.arguments.EntityArgument;
 import net.minecraft.network.chat.TextComponent;
-import net.minecraftforge.event.RegisterCommandsEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
 
 import java.util.Objects;
 
 
-@Mod.EventBusSubscriber
 public class Ride {
-    @SubscribeEvent
-    public static void onServerStaring(RegisterCommandsEvent event) {
-        CommandDispatcher<CommandSourceStack> dispatcher = event.getDispatcher();
-        dispatcher.register(
+    public static void register()  {
+        CommandRegister.dispatcher.register(
                 Commands.literal("ride").requires(s -> s.hasPermission(2))
                         .then(Commands.argument("entity", EntityArgument.entity()).executes(context -> {
                             if(!Objects.equals(context.getSource().getEntity(), EntityArgument.getEntity(context, "entity"))){

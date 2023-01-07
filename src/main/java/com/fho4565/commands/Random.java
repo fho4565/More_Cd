@@ -1,25 +1,17 @@
 package com.fho4565.commands;
 
-import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.IntegerArgumentType;
-import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
 import net.minecraft.network.chat.TextComponent;
-import net.minecraftforge.event.RegisterCommandsEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
 
-@Mod.EventBusSubscriber
 public class Random {
-    @SubscribeEvent
-    public static void onServerStaring(RegisterCommandsEvent event) {
-        CommandDispatcher<CommandSourceStack> dispatcher = event.getDispatcher();
+    public static void register()  {
         java.util.Random r = new java.util.Random();
         AtomicInteger result = new AtomicInteger();
-        dispatcher.register(
+        CommandRegister.dispatcher.register(
                 Commands.literal("random").executes(context -> {
                     result.set(r.nextInt());
                     context.getSource().sendSuccess(new TextComponent("已生成随机数："+result.get()), false);
