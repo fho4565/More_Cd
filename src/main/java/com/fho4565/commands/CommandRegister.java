@@ -21,5 +21,6 @@ public class CommandRegister {
         Run.register();
         World.register();
         helpMcd.register();
+        DataString.register();
     }
 }
