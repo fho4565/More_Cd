@@ -8,6 +8,7 @@ import net.minecraft.commands.arguments.ResourceLocationArgument;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.StringTag;
 
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 
@@ -17,6 +18,32 @@ public class DataString {
                 Commands.literal("string").requires(s -> s.hasPermission(2))
                         .then(Commands.argument("sourceTarget", ResourceLocationArgument.id())
                                 .then(Commands.argument("sourcePath", NbtPathArgument.nbtPath())
+                                        .then(Commands.literal("unicodeEncode").then(Commands.argument("targetTarget", ResourceLocationArgument.id()).then(Commands.argument("targetPath", NbtPathArgument.nbtPath()).executes(context -> {
+                                            String str = Utils.getStringData(context, "sourceTarget", "sourcePath");
+                                                char[] utfBytes = str.toCharArray();
+                                                StringBuilder unicodeBytes = new StringBuilder();
+                                            for (char utfByte : utfBytes) {
+                                                String hexB = Integer.toHexString(utfByte);
+                                                if (hexB.length() <= 2) {
+                                                    hexB = "00" + hexB;
+                                                }
+                                                unicodeBytes.append("\\u").append(hexB);
+                                            }
+                                            Utils.setData(context,"targetTarget", "targetPath",StringTag.valueOf(unicodeBytes.toString()));
+                                                return 1;
+                                        }))))
+                                        .then(Commands.literal("unicodeDecode").then(Commands.argument("targetTarget", ResourceLocationArgument.id()).then(Commands.argument("targetPath", NbtPathArgument.nbtPath()).executes(context -> {
+                                            String str = Utils.getStringData(context, "sourceTarget", "sourcePath");
+                                                Pattern pattern = Pattern.compile("(\\\\u(\\p{XDigit}{4}))");
+                                                Matcher matcher = pattern.matcher(str);
+                                                char ch;
+                                                while (matcher.find()) {
+                                                    ch = (char) Integer.parseInt(matcher.group(2), 16);
+                                                    str = str.replace(matcher.group(1), ch + "");
+                                                }
+                                            Utils.setData(context,"targetTarget", "targetPath",StringTag.valueOf(str));
+                                            return 1;
+                                        }))))
                                         .then(Commands.literal("equals").then(Commands.argument("targetTarget", ResourceLocationArgument.id()).then(Commands.argument("targetPath", NbtPathArgument.nbtPath()).executes(context -> {
                                             String str = Utils.getStringData(context, "sourceTarget", "sourcePath");
                                             String str_ = Utils.getStringData(context, "targetTarget", "targetPath");
