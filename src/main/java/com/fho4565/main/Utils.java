@@ -35,8 +35,8 @@ public class Utils {
         Tag tag = iterator.next();
         return tag.getAsString();
     }
-    public static void setStringData(CommandContext<CommandSourceStack> commandContext,String resourceLocation, String path,String value) throws CommandSyntaxException {
-        NbtPathArgument.getPath(commandContext,path).set(commandContext.getSource().getServer().getCommandStorage().get(ResourceLocationArgument.getId(commandContext, resourceLocation)), () -> StringTag.valueOf(value));
+    public static void setData(CommandContext<CommandSourceStack> commandContext,String sourceResourceLocation, String sourcePath,Tag tag) throws CommandSyntaxException {
+        NbtPathArgument.getPath(commandContext,sourcePath).set(commandContext.getSource().getServer().getCommandStorage().get(ResourceLocationArgument.getId(commandContext, sourceResourceLocation)), () -> tag);
     }
     public static void sendCdFeedback(CommandContext<net.minecraft.commands.CommandSourceStack> commandContext, String content){
         commandContext.getSource().sendSuccess(new TextComponent(content), false);
