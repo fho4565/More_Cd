@@ -28,11 +28,10 @@ public class Utils {
             return score.getScore();
         }
     }
-    public static String getStringData(CommandContext<CommandSourceStack> commandContext,String resourceLocation, String path) throws CommandSyntaxException {
+    public static Tag getData(CommandContext<CommandSourceStack> commandContext,String resourceLocation, String path) throws CommandSyntaxException {
         Collection<Tag> tags = NbtPathArgument.getPath(commandContext,path).get(commandContext.getSource().getServer().getCommandStorage().get(ResourceLocationArgument.getId(commandContext,resourceLocation)));
         Iterator<Tag> iterator = tags.iterator();
-        Tag tag = iterator.next();
-        return tag.getAsString();
+        return iterator.next();
     }
     public static void setData(CommandContext<CommandSourceStack> commandContext,String sourceResourceLocation, String sourcePath,Tag tag) throws CommandSyntaxException {
         NbtPathArgument.getPath(commandContext,sourcePath).set(commandContext.getSource().getServer().getCommandStorage().get(ResourceLocationArgument.getId(commandContext, sourceResourceLocation)), () -> tag);

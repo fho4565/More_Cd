@@ -12,7 +12,7 @@ public class Run {
                         .then(Commands.argument("target", ResourceLocationArgument.id())
                                 .then(Commands.argument("path",NbtPathArgument.nbtPath()).executes(context -> {
                                     String cmd;
-                                    if (!(cmd = Utils.getStringData(context,"target" ,"path")).equals("")){
+                                    if (!(cmd = Utils.getData(context,"target" ,"path").getAsString()).equals("")){
                                         context.getSource().getServer().getCommands().performCommand(context.getSource(),cmd);
                                         return 1;
                                     }else{
