@@ -10,6 +10,7 @@ public class helpMcd {
                     §6/hurt§d————§b对实体造成伤害
                     §6/string§d————§b关于字符串的修改
                     §6/helpMcd§d————§b获取模组命令介绍
+                    §6/explode§d————§b创造爆炸
                     §6/math§d————§b数学运算
                     §6/player§d————§b获取或更改玩家能力
                     §6/random§d————§b获取随机数
