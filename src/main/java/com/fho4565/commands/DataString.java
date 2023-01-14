@@ -124,6 +124,14 @@ public class DataString {
                                             Utils.sendCdFeedback(context, "字符数组已组合");
                                             return 1;
                                         }))))
+                                        .then(Commands.literal("format").then(Commands.argument("targetTarget", ResourceLocationArgument.id()).then(Commands.argument("targetPath", NbtPathArgument.nbtPath()).then(Commands.argument("args",StringArgumentType.string()).executes(context -> {
+                                            String data = Utils.getData(context, "sourceTarget", "sourcePath").getAsString();
+                                            Object[] args = StringArgumentType.getString(context, "args").split(",");
+                                            String formatted = String.format(data, args);
+                                            Utils.setData(context, "targetTarget", "targetPath", StringTag.valueOf(formatted));
+                                            Utils.sendCdFeedback(context, "字符串已格式化");
+                                            return 1;
+                                        })))))
                                 )));
     }
 
