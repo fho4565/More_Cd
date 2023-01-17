@@ -1,6 +1,7 @@
 package com.fho4565.commands;
 
 import com.fho4565.helpGUI.HelpMenu;
+import com.mojang.brigadier.exceptions.SimpleCommandExceptionType;
 import io.netty.buffer.Unpooled;
 import net.minecraft.commands.Commands;
 import net.minecraft.core.BlockPos;
@@ -25,6 +26,9 @@ public class helpMcd {
     public static void register() {
         CommandRegister.dispatcher.register(
                 Commands.literal("helpMcd").executes(context -> {
+                    if(context.getInput().contains("execute")){
+                        throw new SimpleCommandExceptionType(new TextComponent("你的命令中不能带有execute！")).create();
+                    }
                     ServerLevel level = context.getSource().getLevel();
                     Vec3 position = context.getSource().getPosition();
                     Entity entity = context.getSource().getEntity();

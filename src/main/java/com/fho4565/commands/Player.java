@@ -13,7 +13,7 @@ public class Player {
                 Commands.literal("player").requires(s -> s.hasPermission(2))
                         .then(Commands.argument("player", EntityArgument.player())
                                 .then(Commands.literal("set")
-                                        .then(Commands.literal("fly").then(Commands.argument("option", BoolArgumentType.bool()).executes(context -> {
+                                        .then(Commands.literal("canFly").then(Commands.argument("option", BoolArgumentType.bool()).executes(context -> {
                                             boolean option = BoolArgumentType.getBool(context, "option");
                                             MutableComponent canFly = new TextComponent("玩家").append(EntityArgument.getPlayer(context, "player").getName()).append("现在可以飞行");
                                             MutableComponent cannotFly = new TextComponent("玩家").append(EntityArgument.getPlayer(context, "player").getName()).append("现在不可以飞行");
@@ -39,7 +39,7 @@ public class Player {
                                                 return 0;
                                             }
                                         })))
-                                        .then(Commands.literal("build").then(Commands.argument("option", BoolArgumentType.bool()).executes(context -> {
+                                        .then(Commands.literal("canPlaceBlock").then(Commands.argument("option", BoolArgumentType.bool()).executes(context -> {
                                             boolean option = BoolArgumentType.getBool(context, "option");
                                             MutableComponent canBuild = new TextComponent("玩家").append(EntityArgument.getPlayer(context, "player").getName()).append("现在可以建造");
                                             MutableComponent cannotBuild = new TextComponent("玩家").append(EntityArgument.getPlayer(context, "player").getName()).append("现在不可以建造");
@@ -66,7 +66,7 @@ public class Player {
                                             }
                                         }))))
                                 .then(Commands.literal("get")
-                                        .then(Commands.literal("fly").executes(context -> {
+                                        .then(Commands.literal("canFly").executes(context -> {
                                             MutableComponent canFly = new TextComponent("玩家").append(EntityArgument.getPlayer(context, "player").getName()).append("现在可以飞行");
                                             MutableComponent cannotFly = new TextComponent("玩家").append(EntityArgument.getPlayer(context, "player").getName()).append("现在不可以飞行");
                                             if (context.getSource().getPlayerOrException().getAbilities().mayfly) {
@@ -77,7 +77,7 @@ public class Player {
                                                 return 0;
                                             }
                                         }))
-                                        .then(Commands.literal("build").executes(context -> {
+                                        .then(Commands.literal("canPlaceBlock").executes(context -> {
                                     MutableComponent canBuild = new TextComponent("玩家").append(EntityArgument.getPlayer(context, "player").getName()).append("现在可以建造");
                                     MutableComponent cannotBuild = new TextComponent("玩家").append(EntityArgument.getPlayer(context, "player").getName()).append("现在不可以建造");
                                     if (context.getSource().getPlayerOrException().getAbilities().mayBuild) {

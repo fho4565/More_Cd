@@ -7,7 +7,6 @@ import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.components.MultiLineLabel;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
 import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
@@ -25,7 +24,7 @@ public class HelpScreen extends AbstractContainerScreen<HelpMenu> {
     Button left;
     Button right;
     static int index = 1;
-    static final int maxPage = 11;
+    static final int maxPage = 12;
 
     public HelpScreen(HelpMenu container, Inventory inventory, Component text) {
         super(container, inventory, text);
@@ -33,23 +32,21 @@ public class HelpScreen extends AbstractContainerScreen<HelpMenu> {
         this.y = container.y;
         this.z = container.z;
         this.entity = container.entity;
-        this.imageWidth = 350;
-        this.imageHeight = 200;
-        left = new Button(this.leftPos, this.topPos, 30, 20, new TextComponent("left"), e -> TurnButton.handleButtonAction(entity, 0, x, y, z));
-        right = new Button(this.leftPos, this.topPos+20, 30, 20, new TextComponent("right"), e -> TurnButton.handleButtonAction(entity, 1, x, y, z));
+        this.imageWidth = 420;
+        this.imageHeight = 240;
+        left = new Button(this.leftPos, this.topPos, 30, 20, new TranslatableComponent("mcd.com.fho4565.help.btn.left"), e -> TurnButton.handleButtonAction(entity, 0, x, y, z));
+        right = new Button(this.leftPos, this.topPos+20, 30, 20, new TranslatableComponent("mcd.com.fho4565.help.btn.right"), e -> TurnButton.handleButtonAction(entity, 1, x, y, z));
     }
     @Override
     public boolean isPauseScreen() {
         return true;
     }
-
     @Override
     public void render(@NotNull PoseStack ms, int mouseX, int mouseY, float partialTicks) {
         this.renderBackground(ms);
         super.render(ms, mouseX, mouseY, partialTicks);
         this.renderTooltip(ms, mouseX, mouseY);
     }
-
     @Override
     protected void renderBg(@NotNull PoseStack ms, float partialTicks, int gx, int gy) {
         RenderSystem.setShaderColor(1, 1, 1, 1);
@@ -59,7 +56,6 @@ public class HelpScreen extends AbstractContainerScreen<HelpMenu> {
         blit(ms, this.leftPos, this.topPos, 0, 0, this.imageWidth, this.imageHeight, this.imageWidth, this.imageHeight);
         RenderSystem.disableBlend();
     }
-
     @Override
     public boolean keyPressed(int key, int b, int c) {
         if (key == 256) {
@@ -68,7 +64,6 @@ public class HelpScreen extends AbstractContainerScreen<HelpMenu> {
         }
         return super.keyPressed(key, b, c);
     }
-
     @Override
     public void containerTick() {
         super.containerTick();
@@ -85,7 +80,7 @@ public class HelpScreen extends AbstractContainerScreen<HelpMenu> {
             }
             list.add(t);
         }
-        MultiLineLabel.create(Minecraft.getInstance().font, List.copyOf(list)).renderLeftAlignedNoShadow(poseStack, 5, 15,10,0);
+        MultiLineLabel.create(Minecraft.getInstance().font, List.copyOf(list)).renderLeftAlignedNoShadow(poseStack, 5, 17,10,0);
     }
     @Override
     public void onClose() {

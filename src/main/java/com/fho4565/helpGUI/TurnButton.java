@@ -57,7 +57,7 @@ public class TurnButton {
                 }
             }
             case 1 -> {
-                if (HelpScreen.index < HelpScreen.maxPage-1) {
+                if (HelpScreen.index < HelpScreen.maxPage) {
                     HelpScreen.index++;
                 } else {
                     HelpScreen.index = 1;

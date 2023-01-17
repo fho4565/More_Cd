@@ -132,6 +132,11 @@ public class DataString {
                                             Utils.sendCdFeedback(context, "字符串已格式化");
                                             return 1;
                                         })))))
+                                        .then(Commands.literal("toString").then(Commands.argument("targetTarget", ResourceLocationArgument.id()).then(Commands.argument("targetPath", NbtPathArgument.nbtPath()).executes(context -> {
+                                            Utils.setData(context, "targetTarget", "targetPath", StringTag.valueOf(Utils.getData(context, "sourceTarget", "sourcePath").getAsString()));
+                                            Utils.sendCdFeedback(context, "已转换为字符串");
+                                            return 1;
+                                        }))))
                                 )));
     }
 
