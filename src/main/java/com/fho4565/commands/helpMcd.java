@@ -43,18 +43,18 @@ public class helpMcd {
             return;
         }
         if (entity instanceof ServerPlayer _ent) {
-            BlockPos _bpos = new BlockPos(x, y, z);
+            BlockPos blockPos = new BlockPos(x, y, z);
             NetworkHooks.openGui(_ent, new MenuProvider() {
                 @Override
                 public @NotNull AbstractContainerMenu createMenu(int id, @NotNull Inventory inventory, net.minecraft.world.entity.player.@NotNull Player player) {
-                    return new HelpMenu(id, inventory, new FriendlyByteBuf(Unpooled.buffer()).writeBlockPos(_bpos));
+                    return new HelpMenu(id, inventory, new FriendlyByteBuf(Unpooled.buffer()).writeBlockPos(blockPos));
                 }
 
                 @Override
                 public @NotNull Component getDisplayName() {
                     return new TextComponent("P");
                 }
-            }, _bpos);
+            }, blockPos);
         }
     }
 }

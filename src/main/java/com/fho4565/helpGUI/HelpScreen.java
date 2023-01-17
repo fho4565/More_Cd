@@ -24,7 +24,8 @@ public class HelpScreen extends AbstractContainerScreen<HelpMenu> {
     private final Player entity;
     Button left;
     Button right;
-    int index = 1;
+    static int index = 1;
+    static final int maxPage = 11;
 
     public HelpScreen(HelpMenu container, Inventory inventory, Component text) {
         super(container, inventory, text);
@@ -36,6 +37,10 @@ public class HelpScreen extends AbstractContainerScreen<HelpMenu> {
         this.imageHeight = 200;
         left = new Button(this.leftPos, this.topPos, 30, 20, new TextComponent("left"), e -> TurnButton.handleButtonAction(entity, 0, x, y, z));
         right = new Button(this.leftPos, this.topPos+20, 30, 20, new TextComponent("right"), e -> TurnButton.handleButtonAction(entity, 1, x, y, z));
+    }
+    @Override
+    public boolean isPauseScreen() {
+        return true;
     }
 
     @Override
@@ -71,11 +76,16 @@ public class HelpScreen extends AbstractContainerScreen<HelpMenu> {
 
     @Override
     protected void renderLabels(@NotNull PoseStack poseStack, int mouseX, int mouseY) {
+        this.font.draw(poseStack, "第"+index+"页/"+maxPage, 5, 5, -12829636);
         ArrayList<TranslatableComponent> list = new ArrayList<>();
-        for (int i = 0; i < 12; i++) {
-            list.add(new TranslatableComponent("mcd.com.fho4565.help.page"+index+".line"+i));
+        for (int i = 0; i < 30; i++) {
+            TranslatableComponent t = new TranslatableComponent("mcd.com.fho4565.help.page" + index + ".line" + i);
+            if (t.getString().equals(t.getKey())){
+                break;
+            }
+            list.add(t);
         }
-        MultiLineLabel.create(Minecraft.getInstance().font, List.copyOf(list)).renderLeftAligned(poseStack, 5, 5,10,0);
+        MultiLineLabel.create(Minecraft.getInstance().font, List.copyOf(list)).renderLeftAlignedNoShadow(poseStack, 5, 15,10,0);
     }
     @Override
     public void onClose() {
@@ -89,16 +99,5 @@ public class HelpScreen extends AbstractContainerScreen<HelpMenu> {
         Objects.requireNonNull(this.minecraft).keyboardHandler.setSendRepeatsToGui(true);
         this.addRenderableWidget(left);
         this.addRenderableWidget(right);
-    }
-/**@param mode 1：向左翻页；2：向右翻页*/
-    public void pageTurn(int mode){
-        this.clearWidgets();
-        this.addRenderableWidget(left);
-        this.addRenderableWidget(right);
-        switch (mode){
-            case 1:
-
-            case 2:
-        }
     }
 }

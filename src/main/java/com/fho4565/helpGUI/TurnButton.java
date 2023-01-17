@@ -1,7 +1,6 @@
 package com.fho4565.helpGUI;
 
 import com.fho4565.main.Main;
-import com.fho4565.main.Utils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.entity.player.Player;
@@ -23,13 +22,6 @@ public class TurnButton {
         this.x = buffer.readInt();
         this.y = buffer.readInt();
         this.z = buffer.readInt();
-    }
-
-    public TurnButton(int buttonID, int x, int y, int z) {
-        this.buttonID = buttonID;
-        this.x = x;
-        this.y = y;
-        this.z = z;
     }
 
     public static void buffer(TurnButton message, FriendlyByteBuf buffer) {
@@ -57,10 +49,23 @@ public class TurnButton {
         if (!world.hasChunkAt(new BlockPos(x, y, z)))
             return;
         switch (buttonID) {
-            case 0 -> Utils.logger.info("L");
-            case 1 -> Utils.logger.info("R");
+            case 0 -> {
+                if (1 < HelpScreen.index) {
+                    HelpScreen.index--;
+                } else {
+                    HelpScreen.index = HelpScreen.maxPage;
+                }
+            }
+            case 1 -> {
+                if (HelpScreen.index < HelpScreen.maxPage-1) {
+                    HelpScreen.index++;
+                } else {
+                    HelpScreen.index = 1;
+                }
+            }
         }
     }
+
     @SubscribeEvent
     public static void registerMessage(FMLCommonSetupEvent event) {
         Main.addNetworkMessage(TurnButton.class, TurnButton::buffer, TurnButton::new, TurnButton::handler);
