@@ -1,32 +1,60 @@
 package com.fho4565.commands;
 
+import com.fho4565.helpGUI.HelpMenu;
+import io.netty.buffer.Unpooled;
 import net.minecraft.commands.Commands;
+import net.minecraft.core.BlockPos;
+import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TextComponent;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.MenuProvider;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.phys.Vec3;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.common.util.FakePlayerFactory;
+import net.minecraftforge.network.NetworkHooks;
+import org.jetbrains.annotations.NotNull;
 
-
+@OnlyIn(Dist.CLIENT)
 public class helpMcd {
-    private static final TextComponent help = new TextComponent(
-            """
-                    §6/hurt§d————§b对实体造成伤害
-                    §6/string§d————§b关于字符串的修改
-                    §6/helpMcd§d————§b获取模组命令介绍
-                    §6/explode§d————§b创造爆炸
-                    §6/math§d————§b数学运算
-                    §6/player§d————§b获取或更改玩家能力
-                    §6/random§d————§b获取随机数
-                    §6/realityTime§d————§b获取现实时间
-                    §6/ride§d————§b骑乘实体
-                    §6/run§d————§b获取命令存储中字符串并将其当作命令执行
-                    §6/world§d————§b获取世界信息
-                    §2命令的具体用法还请使用/help [<命令名称>]获取"""
-    );
-    public static void register()  {
+    public static void register() {
         CommandRegister.dispatcher.register(
                 Commands.literal("helpMcd").executes(context -> {
-                    context.getSource().sendSuccess(help, false);
+                    ServerLevel level = context.getSource().getLevel();
+                    Vec3 position = context.getSource().getPosition();
+                    Entity entity = context.getSource().getEntity();
+                    if (entity == null) {
+                        entity = FakePlayerFactory.getMinecraft(level);
+                    }
+
+                    execute(position.x(), position.y(), position.z(), entity);
                     return 1;
                 })
         );
     }
 
+    public static void execute(double x, double y, double z, Entity entity) {
+        if (entity == null) {
+            return;
+        }
+        if (entity instanceof ServerPlayer _ent) {
+            BlockPos _bpos = new BlockPos(x, y, z);
+            NetworkHooks.openGui(_ent, new MenuProvider() {
+                @Override
+                public @NotNull AbstractContainerMenu createMenu(int id, @NotNull Inventory inventory, net.minecraft.world.entity.player.@NotNull Player player) {
+                    return new HelpMenu(id, inventory, new FriendlyByteBuf(Unpooled.buffer()).writeBlockPos(_bpos));
+                }
+
+                @Override
+                public @NotNull Component getDisplayName() {
+                    return new TextComponent("P");
+                }
+            }, _bpos);
+        }
+    }
 }

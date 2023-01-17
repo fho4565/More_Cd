@@ -10,6 +10,8 @@ import net.minecraft.network.chat.TextComponent;
 import net.minecraft.world.scores.Objective;
 import net.minecraft.world.scores.Score;
 import net.minecraft.world.scores.Scoreboard;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.Collection;
 import java.util.Iterator;
@@ -17,6 +19,7 @@ import java.util.Iterator;
 
 public class Utils {
     public static final String MODID = "more_cd";
+    public static final Logger logger = LogManager.getLogger();
     /** @param playerName 玩家名字
      * @param objective 要获取的计分板名字*/
     public static int getScore(CommandSourceStack commandSourceStack, String playerName, Objective objective){
