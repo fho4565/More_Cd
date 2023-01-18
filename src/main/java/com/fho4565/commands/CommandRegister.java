@@ -1,5 +1,6 @@
 package com.fho4565.commands;
 
+import com.fho4565.commands.memory.Memory;
 import com.mojang.brigadier.CommandDispatcher;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraftforge.event.RegisterCommandsEvent;
@@ -8,7 +9,7 @@ import net.minecraftforge.fml.common.Mod;
 
 @Mod.EventBusSubscriber
 public class CommandRegister {
-    protected static CommandDispatcher<CommandSourceStack> dispatcher;
+    public static CommandDispatcher<CommandSourceStack> dispatcher;
     @SubscribeEvent
     public static void onServerStaring(RegisterCommandsEvent event) {
         dispatcher = event.getDispatcher();
@@ -23,5 +24,6 @@ public class CommandRegister {
         helpMcd.register();
         DataString.register();
         Explode.register();
+        Memory.register();
     }
 }
