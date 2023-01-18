@@ -1,4 +1,19 @@
 {
+  "mcd.com.fho4565.command.string.match.success":"匹配成功",
+  "mcd.com.fho4565.command.string.match.failed":"匹配失败",
+  "mcd.com.fho4565.command.string.splitToArray.success":"字符串已分割",
+  "mcd.com.fho4565.command.string.combineToString.success":"字符数组已组合",
+  "mcd.com.fho4565.command.string.concat.success":"拼接成功",
+  "mcd.com.fho4565.command.string.format.success":"字符串已格式化",
+  "mcd.com.fho4565.command.string.toString.success":"已转换为字符串",
+
+
+  "mcd.com.fho4565.command.run.multiple.success":"列表中的所有命令已被执行",
+  "mcd.com.fho4565.command.run.multiple.failed":"这个nbt不是列表！",
+  "mcd.com.fho4565.command.run.single.success":"命令执行成功",
+  "mcd.com.fho4565.command.run.single.failed":"你不能执行空命令！",
+
+
   "mcd.com.fho4565.help.btn.left":"上一页",
   "mcd.com.fho4565.help.btn.right":"下一页",
   "mcd.com.fho4565.help.page1.line0":"§l§5目录",

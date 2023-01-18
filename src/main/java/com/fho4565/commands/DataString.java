@@ -48,10 +48,10 @@ public class DataString {
                                             String str = Utils.getData(context, "sourceTarget", "sourcePath").getAsString();
                                             String str_ = Utils.getData(context, "targetTarget", "targetPath").getAsString();
                                             if(str.equals(str_)){
-                                                Utils.sendCdFeedback(context, "匹配成功");
+                                                Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.string.match.success");
                                                 return 1;
                                             } else {
-                                                Utils.sendCdFeedback(context, "匹配失败", true);
+                                                Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.string.match.failed", true);
                                                 return 0;
                                             }
                                         }))))
@@ -59,17 +59,17 @@ public class DataString {
                                             String string = Utils.getData(context, "sourceTarget", "sourcePath").getAsString();
                                             String another = StringArgumentType.getString(context, "anotherString");
                                             Utils.setData(context, "targetTarget", "targetPath", StringTag.valueOf(string.concat(another)));
-                                            Utils.sendCdFeedback(context, "拼接成功");
+                                            Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.string.concat.success");
                                             return 1;
                                         })))))
                                         .then(Commands.literal("startWith").then(Commands.argument("anotherString", StringArgumentType.string()).executes(context -> {
                                             String string = Utils.getData(context, "sourceTarget", "sourcePath").getAsString();
                                             String another = StringArgumentType.getString(context, "anotherString");
                                             if (string.startsWith(another)) {
-                                                Utils.sendCdFeedback(context, "匹配成功");
+                                                Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.string.match.success");
                                                 return 1;
                                             } else {
-                                                Utils.sendCdFeedback(context, "匹配失败", true);
+                                                Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.string.match.failed", true);
                                                 return 0;
                                             }
                                         })))
@@ -77,10 +77,10 @@ public class DataString {
                                             String string = Utils.getData(context, "sourceTarget", "sourcePath").getAsString();
                                             String another = StringArgumentType.getString(context, "anotherString");
                                             if (string.endsWith(another)) {
-                                                Utils.sendCdFeedback(context, "匹配成功");
+                                                Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.string.match.success");
                                                 return 1;
                                             } else {
-                                                Utils.sendCdFeedback(context, "匹配失败", true);
+                                                Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.string.match.failed", true);
                                                 return 0;
                                             }
                                         })))
@@ -88,10 +88,10 @@ public class DataString {
                                             String string = Utils.getData(context, "sourceTarget", "sourcePath").getAsString();
                                             String another = StringArgumentType.getString(context, "anotherString");
                                             if (string.contains(another)) {
-                                                Utils.sendCdFeedback(context, "匹配成功");
+                                                Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.string.match.success");
                                                 return 1;
                                             } else {
-                                                Utils.sendCdFeedback(context, "匹配失败", true);
+                                                Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.string.match.failed", true);
                                                 return 0;
                                             }
                                         })))
@@ -99,10 +99,10 @@ public class DataString {
                                             String line = Utils.getData(context, "sourceTarget", "sourcePath").getAsString();
                                             String regex = StringArgumentType.getString(context, "regularExpression");
                                             if (Pattern.compile(regex).matcher(line).find()) {
-                                                Utils.sendCdFeedback(context, "匹配成功");
+                                                Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.string.match.success");
                                                 return 1;
                                             } else {
-                                                Utils.sendCdFeedback(context, "匹配失败", true);
+                                                Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.string.match.failed", true);
                                                 return 0;
                                             }
                                         })))
@@ -113,7 +113,7 @@ public class DataString {
                                                                 tags.add(StringTag.valueOf(String.valueOf(c)));
                                                             }
                                                             Utils.setData(context, "targetTarget", "targetPath", tags);
-                                                            Utils.sendCdFeedback(context, "字符串已分割");
+                                                            Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.string.splitToArray.success");
                                                             return 1;
                                                         }))))
                                         .then(Commands.literal("combineToString").then(Commands.argument("targetTarget", ResourceLocationArgument.id()).then(Commands.argument("targetPath", NbtPathArgument.nbtPath()).executes(context -> {
@@ -121,7 +121,7 @@ public class DataString {
                                             StringBuilder stringBuilder = new StringBuilder();
                                             chars.forEach(tag -> stringBuilder.append(tag.getAsString()));
                                             Utils.setData(context, "targetTarget", "targetPath", StringTag.valueOf(stringBuilder.toString()));
-                                            Utils.sendCdFeedback(context, "字符数组已组合");
+                                            Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.string.combineToString.success");
                                             return 1;
                                         }))))
                                         .then(Commands.literal("format").then(Commands.argument("targetTarget", ResourceLocationArgument.id()).then(Commands.argument("targetPath", NbtPathArgument.nbtPath()).then(Commands.argument("args",StringArgumentType.string()).executes(context -> {
@@ -129,12 +129,12 @@ public class DataString {
                                             Object[] args = StringArgumentType.getString(context, "args").split(",");
                                             String formatted = String.format(data, args);
                                             Utils.setData(context, "targetTarget", "targetPath", StringTag.valueOf(formatted));
-                                            Utils.sendCdFeedback(context, "字符串已格式化");
+                                            Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.string.format.success");
                                             return 1;
                                         })))))
                                         .then(Commands.literal("toString").then(Commands.argument("targetTarget", ResourceLocationArgument.id()).then(Commands.argument("targetPath", NbtPathArgument.nbtPath()).executes(context -> {
                                             Utils.setData(context, "targetTarget", "targetPath", StringTag.valueOf(Utils.getData(context, "sourceTarget", "sourcePath").getAsString()));
-                                            Utils.sendCdFeedback(context, "已转换为字符串");
+                                            Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.string.toString.success");
                                             return 1;
                                         }))))
                                 )));

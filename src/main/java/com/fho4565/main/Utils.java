@@ -7,6 +7,7 @@ import net.minecraft.commands.arguments.NbtPathArgument;
 import net.minecraft.commands.arguments.ResourceLocationArgument;
 import net.minecraft.nbt.Tag;
 import net.minecraft.network.chat.TextComponent;
+import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.world.scores.Objective;
 import net.minecraft.world.scores.Score;
 import net.minecraft.world.scores.Scoreboard;
@@ -38,6 +39,16 @@ public class Utils {
     }
     public static void setData(CommandContext<CommandSourceStack> commandContext,String sourceResourceLocation, String sourcePath,Tag tag) throws CommandSyntaxException {
         NbtPathArgument.getPath(commandContext,sourcePath).set(commandContext.getSource().getServer().getCommandStorage().get(ResourceLocationArgument.getId(commandContext, sourceResourceLocation)), () -> tag);
+    }
+    public static void sendTCdFeedback(CommandContext<net.minecraft.commands.CommandSourceStack> commandContext, String key){
+        commandContext.getSource().sendSuccess(new TranslatableComponent(key), false);
+    }
+    public static void sendTCdFeedback(CommandContext<net.minecraft.commands.CommandSourceStack> commandContext, String key, Boolean aborted){
+        if(!aborted){
+            commandContext.getSource().sendSuccess(new TranslatableComponent(key), false);
+        }else{
+            commandContext.getSource().sendFailure(new TranslatableComponent(key));
+        }
     }
     public static void sendCdFeedback(CommandContext<net.minecraft.commands.CommandSourceStack> commandContext, String content){
         commandContext.getSource().sendSuccess(new TextComponent(content), false);

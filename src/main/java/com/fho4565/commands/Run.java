@@ -16,10 +16,10 @@ public class Run {
                                             if (Utils.getData(context, "target", "path").getType().getName().equals("LIST")) {
                                                 ListTag cds = (ListTag) Utils.getData(context, "target", "path");
                                                 cds.forEach(tag -> context.getSource().getServer().getCommands().performCommand(context.getSource(), tag.getAsString()));
-                                                Utils.sendCdFeedback(context, "列表中的所有命令已被执行");
+                                                Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.run.multiple.success");
                                                 return 1;
                                             } else {
-                                                Utils.sendCdFeedback(context, "这个nbt不是列表！", true);
+                                                Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.run.multiple.failed", true);
                                                 return 0;
                                             }
                                         }))))
@@ -29,9 +29,10 @@ public class Run {
                                             String cmd;
                                             if (!(cmd = Utils.getData(context, "target", "path").getAsString()).equals("")) {
                                                 context.getSource().getServer().getCommands().performCommand(context.getSource(), cmd);
+                                                Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.run.single.success", true);
                                                 return 1;
                                             } else {
-                                                Utils.sendCdFeedback(context, "你不能执行空命令！", true);
+                                                Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.run.single.failed", true);
                                                 return 0;
                                             }
                                         }))))
