@@ -8,6 +8,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TextComponent;
+import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.MenuProvider;
@@ -27,7 +28,7 @@ public class helpMcd {
         CommandRegister.dispatcher.register(
                 Commands.literal("helpMcd").executes(context -> {
                     if(context.getInput().contains("execute")){
-                        throw new SimpleCommandExceptionType(new TextComponent("你的命令中不能带有execute！")).create();
+                        throw new SimpleCommandExceptionType(new TranslatableComponent("mcd.com.fho4565.command.run.helpMcd.failed")).create();
                     }
                     ServerLevel level = context.getSource().getLevel();
                     Vec3 position = context.getSource().getPosition();
@@ -56,7 +57,7 @@ public class helpMcd {
 
                 @Override
                 public @NotNull Component getDisplayName() {
-                    return new TextComponent("P");
+                    return new TextComponent("helpMcd");
                 }
             }, blockPos);
         }

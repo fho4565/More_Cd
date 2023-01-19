@@ -7,11 +7,46 @@
   "mcd.com.fho4565.command.string.format.success":"字符串已格式化",
   "mcd.com.fho4565.command.string.toString.success":"已转换为字符串",
 
+  "mcd.com.fho4565.command.run.helpMcd.failed":"你的命令中不能带有execute！",
 
+  "mcd.com.fho4565.command.hurt.success":"对%s造成了%s点伤害",
+  "mcd.com.fho4565.command.hurt.failed":"你不能对实体造成%s点伤害！",
+
+  "mcd.com.fho4565.command.math.success":"结果为%s",
+
+  "mcd.com.fho4565.command.canPlaceBlock.enabled":"玩家%s现在可以放置方块",
+  "mcd.com.fho4565.command.canPlaceBlock.disabled":"玩家%s现在不可以放置方块",
+  "mcd.com.fho4565.command.canFly.enabled":"玩家%s现在可以飞行",
+  "mcd.com.fho4565.command.canFly.disabled":"玩家%s现在不可以飞行",
+  "mcd.com.fho4565.command.canPlaceBlock.enabledA":"玩家%s已经可以放置方块",
+  "mcd.com.fho4565.command.canPlaceBlock.disabledA":"玩家%s已经不可以放置方块",
+  "mcd.com.fho4565.command.canFly.enabledA":"玩家%s已经可以飞行",
+  "mcd.com.fho4565.command.canFly.disabledA":"玩家%s已经不可以飞行",
+
+  "mcd.com.fho4565.command.random.success":"已生成随机数%s",
+
+  "mcd.com.fho4565.command.realityTime.second.success":"当前现实秒为%s",
+  "mcd.com.fho4565.command.realityTime.minute.success":"当前现实分钟为%s",
+  "mcd.com.fho4565.command.realityTime.hour12.success":"当前现实小时(12小时制)为%s",
+  "mcd.com.fho4565.command.realityTime.hour24.success":"当前现实小时(24小时制)为%s",
+  "mcd.com.fho4565.command.realityTime.day.success":"当前现实日为%s",
+  "mcd.com.fho4565.command.realityTime.month.success":"当前现实月为%s",
+  "mcd.com.fho4565.command.realityTime.year.success":"当前现实年为%s",
+
+  "mcd.com.fho4565.command.ride.success":"正在骑乘实体",
+  "mcd.com.fho4565.command.ride.failed":"你不能骑着自己！",
+  "mcd.com.fho4565.command.ride.successE":"正在使%s骑乘%s",
+  "mcd.com.fho4565.command.ride.failedE":"你不能让%s骑着他自己！",
+  
   "mcd.com.fho4565.command.run.multiple.success":"列表中的所有命令已被执行",
   "mcd.com.fho4565.command.run.multiple.failed":"这个nbt不是列表！",
   "mcd.com.fho4565.command.run.single.success":"命令执行成功",
   "mcd.com.fho4565.command.run.single.failed":"你不能执行空命令！",
+
+  "mcd.com.fho4565.command.world.spawnPoint.success":"当前世界出生点%s坐标为：%s",
+  "mcd.com.fho4565.command.world.version.success":"当前游戏版本为：%s",
+  "mcd.com.fho4565.command.world.tickTime.success":"当前世界的tick time为：%s",
+  "mcd.com.fho4565.command.world.tps.success":"当前世界的tps为：%s",
 
 
   "mcd.com.fho4565.help.btn.left":"上一页",

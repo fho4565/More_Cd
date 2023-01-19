@@ -10,7 +10,7 @@ public class Run {
     public static void register() {
         CommandRegister.dispatcher.register(
                 Commands.literal("run").requires(s -> s.hasPermission(2))
-                        .then(Commands.literal("multiple")
+                        .then(Commands.literal("multiple").requires(commandSourceStack -> commandSourceStack.hasPermission(4))
                                 .then(Commands.argument("target", ResourceLocationArgument.id())
                                         .then(Commands.argument("path", NbtPathArgument.nbtPath()).executes(context -> {
                                             if (Utils.getData(context, "target", "path").getType().getName().equals("LIST")) {

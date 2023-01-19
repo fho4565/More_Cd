@@ -1,10 +1,9 @@
 package com.fho4565.commands;
 
+import com.fho4565.main.Utils;
 import com.mojang.brigadier.arguments.BoolArgumentType;
 import net.minecraft.commands.Commands;
 import net.minecraft.commands.arguments.EntityArgument;
-import net.minecraft.network.chat.MutableComponent;
-import net.minecraft.network.chat.TextComponent;
 
 
 public class Player {
@@ -15,24 +14,20 @@ public class Player {
                                 .then(Commands.literal("set")
                                         .then(Commands.literal("canFly").then(Commands.argument("option", BoolArgumentType.bool()).executes(context -> {
                                             boolean option = BoolArgumentType.getBool(context, "option");
-                                            MutableComponent canFly = new TextComponent("玩家").append(EntityArgument.getPlayer(context, "player").getName()).append("现在可以飞行");
-                                            MutableComponent cannotFly = new TextComponent("玩家").append(EntityArgument.getPlayer(context, "player").getName()).append("现在不可以飞行");
                                             if (context.getSource().getPlayerOrException().getAbilities().mayfly != option) {
                                                 context.getSource().getPlayerOrException().getAbilities().mayfly = option;
                                                 context.getSource().getPlayerOrException().onUpdateAbilities();
                                                 if (option) {
-                                                    context.getSource().sendSuccess(canFly, false);
+                                                    Utils.sendTCdFeedback(context,"mcd.com.fho4565.command.canFly.enabled",EntityArgument.getPlayer(context, "player").getName().getString());
                                                 } else {
-                                                    context.getSource().sendSuccess(cannotFly, false);
+                                                    Utils.sendTCdFeedback(context,"mcd.com.fho4565.command.canFly.disabled",EntityArgument.getPlayer(context, "player").getName().getString());
                                                 }
                                                 return 1;
                                             } else if (context.getSource().getPlayerOrException().getAbilities().mayfly == option) {
-                                                MutableComponent alreadyCanFly = new TextComponent("玩家").append(EntityArgument.getPlayer(context, "player").getName()).append("已经可以飞行");
-                                                MutableComponent alreadyCannotFly = new TextComponent("玩家").append(EntityArgument.getPlayer(context, "player").getName()).append("已经不可以飞行");
                                                 if (option) {
-                                                    context.getSource().sendFailure(alreadyCanFly);
+                                                    Utils.sendTCdFeedback(context,"mcd.com.fho4565.command.canFly.enabledA",EntityArgument.getPlayer(context, "player").getName().getString());
                                                 } else {
-                                                    context.getSource().sendFailure(alreadyCannotFly);
+                                                    Utils.sendTCdFeedback(context,"mcd.com.fho4565.command.canFly.disabledA",EntityArgument.getPlayer(context, "player").getName().getString());
                                                 }
                                                 return 0;
                                             }else{
@@ -41,24 +36,20 @@ public class Player {
                                         })))
                                         .then(Commands.literal("canPlaceBlock").then(Commands.argument("option", BoolArgumentType.bool()).executes(context -> {
                                             boolean option = BoolArgumentType.getBool(context, "option");
-                                            MutableComponent canBuild = new TextComponent("玩家").append(EntityArgument.getPlayer(context, "player").getName()).append("现在可以建造");
-                                            MutableComponent cannotBuild = new TextComponent("玩家").append(EntityArgument.getPlayer(context, "player").getName()).append("现在不可以建造");
                                             if (context.getSource().getPlayerOrException().getAbilities().mayBuild != option) {
                                                 context.getSource().getPlayerOrException().getAbilities().mayBuild = option;
                                                 context.getSource().getPlayerOrException().onUpdateAbilities();
                                                 if (option) {
-                                                    context.getSource().sendSuccess(canBuild, false);
+                                                    Utils.sendTCdFeedback(context,"mcd.com.fho4565.command.canPlaceBlock.enabled",EntityArgument.getPlayer(context, "player").getName().getString());
                                                 } else {
-                                                    context.getSource().sendSuccess(cannotBuild, false);
+                                                    Utils.sendTCdFeedback(context,"mcd.com.fho4565.command.canPlaceBlock.disabled",EntityArgument.getPlayer(context, "player").getName().getString());
                                                 }
                                                 return 1;
                                             } else if (context.getSource().getPlayerOrException().getAbilities().mayBuild == option) {
-                                                MutableComponent alreadyCanBuild = new TextComponent("玩家").append(EntityArgument.getPlayer(context, "player").getName()).append("已经可以建造");
-                                                MutableComponent alreadyCannotBuild = new TextComponent("玩家").append(EntityArgument.getPlayer(context, "player").getName()).append("已经不可以建造");
                                                 if (option) {
-                                                    context.getSource().sendFailure(alreadyCanBuild);
+                                                    Utils.sendTCdFeedback(context,"mcd.com.fho4565.command.canPlaceBlock.enabledA",EntityArgument.getPlayer(context, "player").getName().getString());
                                                 } else {
-                                                    context.getSource().sendFailure(alreadyCannotBuild);
+                                                    Utils.sendTCdFeedback(context,"mcd.com.fho4565.command.canPlaceBlock.disabledA",EntityArgument.getPlayer(context, "player").getName().getString());
                                                 }
                                                 return 0;
                                             }else{
@@ -67,24 +58,20 @@ public class Player {
                                         }))))
                                 .then(Commands.literal("get")
                                         .then(Commands.literal("canFly").executes(context -> {
-                                            MutableComponent canFly = new TextComponent("玩家").append(EntityArgument.getPlayer(context, "player").getName()).append("现在可以飞行");
-                                            MutableComponent cannotFly = new TextComponent("玩家").append(EntityArgument.getPlayer(context, "player").getName()).append("现在不可以飞行");
                                             if (context.getSource().getPlayerOrException().getAbilities().mayfly) {
-                                                context.getSource().sendSuccess(canFly, false);
+                                                Utils.sendTCdFeedback(context,"mcd.com.fho4565.command.canFly.enabled",EntityArgument.getPlayer(context, "player").getName().getString());
                                                 return 1;
                                             } else {
-                                                context.getSource().sendSuccess(cannotFly, false);
+                                                Utils.sendTCdFeedback(context,"mcd.com.fho4565.command.canFly.disabled",EntityArgument.getPlayer(context, "player").getName().getString());
                                                 return 0;
                                             }
                                         }))
                                         .then(Commands.literal("canPlaceBlock").executes(context -> {
-                                    MutableComponent canBuild = new TextComponent("玩家").append(EntityArgument.getPlayer(context, "player").getName()).append("现在可以建造");
-                                    MutableComponent cannotBuild = new TextComponent("玩家").append(EntityArgument.getPlayer(context, "player").getName()).append("现在不可以建造");
                                     if (context.getSource().getPlayerOrException().getAbilities().mayBuild) {
-                                        context.getSource().sendSuccess(canBuild, false);
+                                        Utils.sendTCdFeedback(context,"mcd.com.fho4565.command.canPlaceBlock.enabled",EntityArgument.getPlayer(context, "player").getName().getString());
                                         return 1;
                                     } else {
-                                        context.getSource().sendSuccess(cannotBuild, false);
+                                        Utils.sendTCdFeedback(context,"mcd.com.fho4565.command.canPlaceBlock.disabled",EntityArgument.getPlayer(context, "player").getName().getString());
                                         return 0;
                                     }
                                 }))))
