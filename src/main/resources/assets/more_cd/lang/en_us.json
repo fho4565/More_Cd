@@ -22,6 +22,7 @@
   "mcd.com.fho4565.command.canPlaceBlock.disabledA":"玩家%s已经不可以放置方块",
   "mcd.com.fho4565.command.canFly.enabledA":"玩家%s已经可以飞行",
   "mcd.com.fho4565.command.canFly.disabledA":"玩家%s已经不可以飞行",
+  "mcd.com.fho4565.command.rightClick.success":"在位于%s的方块上模拟了%s的右键操作",
 
   "mcd.com.fho4565.command.random.success":"已生成随机数%s",
 

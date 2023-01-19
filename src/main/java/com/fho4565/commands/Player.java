@@ -4,6 +4,14 @@ import com.fho4565.main.Utils;
 import com.mojang.brigadier.arguments.BoolArgumentType;
 import net.minecraft.commands.Commands;
 import net.minecraft.commands.arguments.EntityArgument;
+import net.minecraft.commands.arguments.coordinates.BlockPosArgument;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.Vec3;
 
 
 public class Player {
@@ -74,8 +82,17 @@ public class Player {
                                         Utils.sendTCdFeedback(context,"mcd.com.fho4565.command.canPlaceBlock.disabled",EntityArgument.getPlayer(context, "player").getName().getString());
                                         return 0;
                                     }
-                                }))))
-        );
+                                })))
+                                .then(Commands.literal("rightClick")
+                                        .then(Commands.argument("pos", BlockPosArgument.blockPos()).executes(context -> {
+                                            ServerLevel level = context.getSource().getLevel();
+                                            ServerPlayer player = EntityArgument.getPlayer(context, "player");
+                                            BlockPos pos = new BlockPos(BlockPosArgument.getLoadedBlockPos(context, "pos"));
+                                            level.getBlockState(pos).use(level,player, InteractionHand.MAIN_HAND, new BlockHitResult(new Vec3(pos.getX(),pos.getY(),pos.getZ()), Direction.UP,pos,false));
+                                            Utils.sendTCdFeedback(context,"mcd.com.fho4565.command.rightClick.success",pos.toShortString(),player.getName().getString());
+                                            return 1;
+                                        })))
+                                ));
     }
 
 }

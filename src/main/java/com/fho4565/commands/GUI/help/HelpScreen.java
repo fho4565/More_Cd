@@ -1,4 +1,4 @@
-package com.fho4565.helpGUI;
+package com.fho4565.commands.GUI.help;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
