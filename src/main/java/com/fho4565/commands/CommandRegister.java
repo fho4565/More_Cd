@@ -1,6 +1,5 @@
 package com.fho4565.commands;
 
-import com.fho4565.commands.memory.Memory;
 import com.mojang.brigadier.CommandDispatcher;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraftforge.event.RegisterCommandsEvent;
@@ -24,6 +23,5 @@ public class CommandRegister {
         helpMcd.register();
         DataString.register();
         Explode.register();
-        Memory.register();
     }
 }
