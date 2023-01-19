@@ -47,9 +47,9 @@ public class helpMcd {
         if (entity == null) {
             return;
         }
-        if (entity instanceof ServerPlayer _ent) {
+        if (entity instanceof ServerPlayer serverPlayer) {
             BlockPos blockPos = new BlockPos(x, y, z);
-            NetworkHooks.openGui(_ent, new MenuProvider() {
+            NetworkHooks.openGui(serverPlayer, new MenuProvider() {
                 @Override
                 public @NotNull AbstractContainerMenu createMenu(int id, @NotNull Inventory inventory, net.minecraft.world.entity.player.@NotNull Player player) {
                     return new HelpMenu(id, inventory, new FriendlyByteBuf(Unpooled.buffer()).writeBlockPos(blockPos));
