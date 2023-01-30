@@ -23,5 +23,6 @@ public class CommandRegister {
         helpMcd.register();
         DataString.register();
         Explode.register();
+//        Memory.register();
     }
 }

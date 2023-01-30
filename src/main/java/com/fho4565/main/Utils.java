@@ -2,12 +2,17 @@ package com.fho4565.main;
 
 import com.mojang.brigadier.context.CommandContext;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
+import com.mojang.brigadier.suggestion.SuggestionProvider;
 import net.minecraft.commands.CommandSourceStack;
+import net.minecraft.commands.SharedSuggestionProvider;
 import net.minecraft.commands.arguments.NbtPathArgument;
 import net.minecraft.commands.arguments.ResourceLocationArgument;
+import net.minecraft.commands.synchronization.SuggestionProviders;
 import net.minecraft.nbt.Tag;
 import net.minecraft.network.chat.TextComponent;
 import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.storage.LevelResource;
 import net.minecraft.world.scores.Objective;
 import net.minecraft.world.scores.Score;
 import net.minecraft.world.scores.Scoreboard;
@@ -21,6 +26,17 @@ import java.util.Iterator;
 public class Utils {
     public static final String MODID = "more_cd";
     public static final Logger logger = LogManager.getLogger();
+
+    public static SuggestionProvider<CommandSourceStack> getCommandSuggestion(String[] strings){
+        return SuggestionProviders.register(new ResourceLocation(""),
+                (context, builder) ->
+                        SharedSuggestionProvider.suggest(strings,
+                                builder));
+    }
+
+    public static String getWorldPath(CommandContext<CommandSourceStack> context){
+        return context.getSource().getServer().getWorldPath(new LevelResource("")).toFile().getAbsolutePath();
+    }
     /** @param playerName 玩家名字
      * @param objective 要获取的计分板名字*/
     public static int getScore(CommandSourceStack commandSourceStack, String playerName, Objective objective){
