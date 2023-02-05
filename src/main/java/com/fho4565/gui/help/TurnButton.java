@@ -1,4 +1,4 @@
-package com.fho4565.commands.GUI.help;
+package com.fho4565.gui.help;
 
 import com.fho4565.main.Main;
 import net.minecraft.core.BlockPos;

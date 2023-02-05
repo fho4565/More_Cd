@@ -1,6 +1,6 @@
-package com.fho4565.commands.GUI;
+package com.fho4565.gui;
 
-import com.fho4565.commands.GUI.help.HelpMenu;
+import com.fho4565.gui.help.HelpMenu;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraftforge.event.RegistryEvent;
@@ -14,11 +14,11 @@ import java.util.List;
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class Menus {
     private static final List<MenuType<?>> REGISTRY = new ArrayList<>();
-    public static final MenuType<HelpMenu> HELP = register("help", HelpMenu::new);
+    public static final MenuType<HelpMenu> HELP = register(HelpMenu::new);
 
-    private static <T extends AbstractContainerMenu> MenuType<T> register(String registryName, IContainerFactory<T> containerFactory) {
+    private static <T extends AbstractContainerMenu> MenuType<T> register(IContainerFactory<T> containerFactory) {
         MenuType<T> menuType = new MenuType<>(containerFactory);
-        menuType.setRegistryName(registryName);
+        menuType.setRegistryName("help");
         REGISTRY.add(menuType);
         return menuType;
     }

@@ -24,5 +24,6 @@ public class CommandRegister {
         DataString.register();
         Explode.register();
 //        Memory.register();
+        ScoreboardDisplayer.register();
     }
 }

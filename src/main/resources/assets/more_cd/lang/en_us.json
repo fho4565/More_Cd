@@ -44,6 +44,19 @@
   "mcd.com.fho4565.command.run.single.success":"命令执行成功",
   "mcd.com.fho4565.command.run.single.failed":"你不能执行空命令！",
 
+  "mcd.com.fho4565.command.scoreboardDisplayer.change.x":"当前计分板%s在坐标[%s,%s]处显示",
+  "mcd.com.fho4565.command.scoreboardDisplayer.change.visible":"当前计分板%s正在显示",
+  "mcd.com.fho4565.command.scoreboardDisplayer.change.invisible":"当前计分板%s正在隐藏",
+  "mcd.com.fho4565.command.scoreboardDisplayer.change.note":"当前计分板%s的注释为:%s",
+
+  "mcd.com.fho4565.command.scoreboardDisplayer.query.x":"当前计分板%s在X:%s处显示",
+  "mcd.com.fho4565.command.scoreboardDisplayer.query.y":"当前计分板%s在Y:%s处显示",
+  "mcd.com.fho4565.command.scoreboardDisplayer.query.note":"当前计分板%s的注释为:%s",
+  "mcd.com.fho4565.command.scoreboardDisplayer.query.visible.visible":"当前计分板%s正在显示",
+  "mcd.com.fho4565.command.scoreboardDisplayer.query.visible.invisible":"当前计分板%s正在隐藏",
+  "mcd.com.fho4565.command.scoreboardDisplayer.query.single.visible":"[%s][%s,%s] 正在显示",
+  "mcd.com.fho4565.command.scoreboardDisplayer.query.single.invisible":"[%s][%s,%s] 正在隐藏",
+
   "mcd.com.fho4565.command.world.spawnPoint.success":"当前世界出生点%s坐标为：%s",
   "mcd.com.fho4565.command.world.version.success":"当前游戏版本为：%s",
   "mcd.com.fho4565.command.world.tickTime.success":"当前世界的tick time为：%s",
@@ -52,6 +65,7 @@
 
   "mcd.com.fho4565.help.btn.left":"上一页",
   "mcd.com.fho4565.help.btn.right":"下一页",
+
   "mcd.com.fho4565.help.page1.line0":"§l§5目录",
   "mcd.com.fho4565.help.page1.line1":"§1/hurt§d————§5对实体造成伤害",
   "mcd.com.fho4565.help.page1.line2":"§1/string§d————§5关于字符串的修改",

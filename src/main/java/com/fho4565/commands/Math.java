@@ -18,13 +18,13 @@ public class Math {
                                 .then(Commands.literal("score")
                                         .then(Commands.argument("baseHolder", ScoreHolderArgument.scoreHolder())
                                         .then(Commands.argument("baseScore", ObjectiveArgument.objective()).executes(context -> {
-                                            double result = java.lang.Math.log10(Utils.getScore(context.getSource(), ScoreHolderArgument.getName(context, "baseHolder"), ObjectiveArgument.getObjective(context, "baseScore")));
+                                            double result = java.lang.Math.log10(Utils.getScore(context.getSource().getServer(), ScoreHolderArgument.getName(context, "baseHolder"), ObjectiveArgument.getObjective(context, "baseScore")));
                                             Utils.sendTCdFeedback(context,"mcd.com.fho4565.command.math.success", String.valueOf(result));
                                             return (int) result;
                                         })
                                                 .then(Commands.argument("targetTarget", ResourceLocationArgument.id())
                                                         .then(Commands.argument("targetPath", NbtPathArgument.nbtPath()).executes(context -> {
-                                            double result = java.lang.Math.log10(Utils.getScore(context.getSource(), ScoreHolderArgument.getName(context, "baseHolder"), ObjectiveArgument.getObjective(context, "baseScore")));
+                                            double result = java.lang.Math.log10(Utils.getScore(context.getSource().getServer(), ScoreHolderArgument.getName(context, "baseHolder"), ObjectiveArgument.getObjective(context, "baseScore")));
                                             Utils.setData(context, "targetTarget", "targetPath", DoubleTag.valueOf(result));
                                             Utils.sendTCdFeedback(context,"mcd.com.fho4565.command.math.success", String.valueOf(result));
                                             return (int) result;
@@ -60,13 +60,13 @@ public class Math {
                                 .then(Commands.literal("score")
                                         .then(Commands.argument("baseHolder", ScoreHolderArgument.scoreHolder())
                                         .then(Commands.argument("baseScore", ObjectiveArgument.objective()).executes(context -> {
-                                            double result = java.lang.Math.log(Utils.getScore(context.getSource(), ScoreHolderArgument.getName(context, "baseHolder"), ObjectiveArgument.getObjective(context, "baseScore")));
+                                            double result = java.lang.Math.log(Utils.getScore(context.getSource().getServer(), ScoreHolderArgument.getName(context, "baseHolder"), ObjectiveArgument.getObjective(context, "baseScore")));
                                             Utils.sendTCdFeedback(context,"mcd.com.fho4565.command.math.success", String.valueOf(result));
                                             return (int) result;
                                         })
                                                 .then(Commands.argument("targetTarget", ResourceLocationArgument.id())
                                                         .then(Commands.argument("targetPath", NbtPathArgument.nbtPath()).executes(context -> {
-                                            double result = java.lang.Math.log(Utils.getScore(context.getSource(), ScoreHolderArgument.getName(context, "baseHolder"), ObjectiveArgument.getObjective(context, "baseScore")));
+                                            double result = java.lang.Math.log(Utils.getScore(context.getSource().getServer(), ScoreHolderArgument.getName(context, "baseHolder"), ObjectiveArgument.getObjective(context, "baseScore")));
                                             Utils.setData(context, "targetTarget", "targetPath", DoubleTag.valueOf(result));
                                             Utils.sendTCdFeedback(context,"mcd.com.fho4565.command.math.success", String.valueOf(result));
                                             return (int) result;
@@ -102,13 +102,13 @@ public class Math {
                                 .then(Commands.literal("score")
                                         .then(Commands.argument("baseHolder", ScoreHolderArgument.scoreHolder())
                                         .then(Commands.argument("baseScore", ObjectiveArgument.objective()).executes(context -> {
-                                            double result = java.lang.Math.tanh(Utils.getScore(context.getSource(), ScoreHolderArgument.getName(context, "baseHolder"), ObjectiveArgument.getObjective(context, "baseScore")));
+                                            double result = java.lang.Math.tanh(Utils.getScore(context.getSource().getServer(), ScoreHolderArgument.getName(context, "baseHolder"), ObjectiveArgument.getObjective(context, "baseScore")));
                                             Utils.sendTCdFeedback(context,"mcd.com.fho4565.command.math.success", String.valueOf(result));
                                             return (int) result;
                                         })
                                                 .then(Commands.argument("targetTarget", ResourceLocationArgument.id())
                                                         .then(Commands.argument("targetPath", NbtPathArgument.nbtPath()).executes(context -> {
-                                            double result = java.lang.Math.tanh(Utils.getScore(context.getSource(), ScoreHolderArgument.getName(context, "baseHolder"), ObjectiveArgument.getObjective(context, "baseScore")));
+                                            double result = java.lang.Math.tanh(Utils.getScore(context.getSource().getServer(), ScoreHolderArgument.getName(context, "baseHolder"), ObjectiveArgument.getObjective(context, "baseScore")));
                                             Utils.setData(context, "targetTarget", "targetPath", DoubleTag.valueOf(result));
                                             Utils.sendTCdFeedback(context,"mcd.com.fho4565.command.math.success", String.valueOf(result));
                                             return (int) result;
@@ -144,13 +144,13 @@ public class Math {
                                 .then(Commands.literal("score")
                                         .then(Commands.argument("baseHolder", ScoreHolderArgument.scoreHolder())
                                         .then(Commands.argument("baseScore", ObjectiveArgument.objective()).executes(context -> {
-                                            double result = java.lang.Math.cosh(Utils.getScore(context.getSource(), ScoreHolderArgument.getName(context, "baseHolder"), ObjectiveArgument.getObjective(context, "baseScore")));
+                                            double result = java.lang.Math.cosh(Utils.getScore(context.getSource().getServer(), ScoreHolderArgument.getName(context, "baseHolder"), ObjectiveArgument.getObjective(context, "baseScore")));
                                             Utils.sendTCdFeedback(context,"mcd.com.fho4565.command.math.success", String.valueOf(result));
                                             return (int) result;
                                         })
                                                 .then(Commands.argument("targetTarget", ResourceLocationArgument.id())
                                                         .then(Commands.argument("targetPath", NbtPathArgument.nbtPath()).executes(context -> {
-                                            double result = java.lang.Math.cosh(Utils.getScore(context.getSource(), ScoreHolderArgument.getName(context, "baseHolder"), ObjectiveArgument.getObjective(context, "baseScore")));
+                                            double result = java.lang.Math.cosh(Utils.getScore(context.getSource().getServer(), ScoreHolderArgument.getName(context, "baseHolder"), ObjectiveArgument.getObjective(context, "baseScore")));
                                             Utils.setData(context, "targetTarget", "targetPath", DoubleTag.valueOf(result));
                                             Utils.sendTCdFeedback(context,"mcd.com.fho4565.command.math.success", String.valueOf(result));
                                             return (int) result;
@@ -186,13 +186,13 @@ public class Math {
                                 .then(Commands.literal("score")
                                         .then(Commands.argument("baseHolder", ScoreHolderArgument.scoreHolder())
                                         .then(Commands.argument("baseScore", ObjectiveArgument.objective()).executes(context -> {
-                                            double result = java.lang.Math.sinh(Utils.getScore(context.getSource(), ScoreHolderArgument.getName(context, "baseHolder"), ObjectiveArgument.getObjective(context, "baseScore")));
+                                            double result = java.lang.Math.sinh(Utils.getScore(context.getSource().getServer(), ScoreHolderArgument.getName(context, "baseHolder"), ObjectiveArgument.getObjective(context, "baseScore")));
                                             Utils.sendTCdFeedback(context,"mcd.com.fho4565.command.math.success", String.valueOf(result));
                                             return (int) result;
                                         })
                                                 .then(Commands.argument("targetTarget", ResourceLocationArgument.id())
                                                         .then(Commands.argument("targetPath", NbtPathArgument.nbtPath()).executes(context -> {
-                                            double result = java.lang.Math.sinh(Utils.getScore(context.getSource(), ScoreHolderArgument.getName(context, "baseHolder"), ObjectiveArgument.getObjective(context, "baseScore")));
+                                            double result = java.lang.Math.sinh(Utils.getScore(context.getSource().getServer(), ScoreHolderArgument.getName(context, "baseHolder"), ObjectiveArgument.getObjective(context, "baseScore")));
                                             Utils.setData(context, "targetTarget", "targetPath", DoubleTag.valueOf(result));
                                             Utils.sendTCdFeedback(context,"mcd.com.fho4565.command.math.success", String.valueOf(result));
                                             return (int) result;
@@ -228,13 +228,13 @@ public class Math {
                                 .then(Commands.literal("score")
                                         .then(Commands.argument("baseHolder", ScoreHolderArgument.scoreHolder())
                                         .then(Commands.argument("baseScore", ObjectiveArgument.objective()).executes(context -> {
-                                            double result = java.lang.Math.atan(Utils.getScore(context.getSource(), ScoreHolderArgument.getName(context, "baseHolder"), ObjectiveArgument.getObjective(context, "baseScore")));
+                                            double result = java.lang.Math.atan(Utils.getScore(context.getSource().getServer(), ScoreHolderArgument.getName(context, "baseHolder"), ObjectiveArgument.getObjective(context, "baseScore")));
                                             Utils.sendTCdFeedback(context,"mcd.com.fho4565.command.math.success", String.valueOf(result));
                                             return (int) result;
                                         })
                                                 .then(Commands.argument("targetTarget", ResourceLocationArgument.id())
                                                         .then(Commands.argument("targetPath", NbtPathArgument.nbtPath()).executes(context -> {
-                                            double result = java.lang.Math.atan(Utils.getScore(context.getSource(), ScoreHolderArgument.getName(context, "baseHolder"), ObjectiveArgument.getObjective(context, "baseScore")));
+                                            double result = java.lang.Math.atan(Utils.getScore(context.getSource().getServer(), ScoreHolderArgument.getName(context, "baseHolder"), ObjectiveArgument.getObjective(context, "baseScore")));
                                             Utils.setData(context, "targetTarget", "targetPath", DoubleTag.valueOf(result));
                                             Utils.sendTCdFeedback(context,"mcd.com.fho4565.command.math.success", String.valueOf(result));
                                             return (int) result;
@@ -270,13 +270,13 @@ public class Math {
                                 .then(Commands.literal("score")
                                         .then(Commands.argument("baseHolder", ScoreHolderArgument.scoreHolder())
                                         .then(Commands.argument("baseScore", ObjectiveArgument.objective()).executes(context -> {
-                                            double result = java.lang.Math.acos(Utils.getScore(context.getSource(), ScoreHolderArgument.getName(context, "baseHolder"), ObjectiveArgument.getObjective(context, "baseScore")));
+                                            double result = java.lang.Math.acos(Utils.getScore(context.getSource().getServer(), ScoreHolderArgument.getName(context, "baseHolder"), ObjectiveArgument.getObjective(context, "baseScore")));
                                             Utils.sendTCdFeedback(context,"mcd.com.fho4565.command.math.success", String.valueOf(result));
                                             return (int) result;
                                         })
                                                 .then(Commands.argument("targetTarget", ResourceLocationArgument.id())
                                                         .then(Commands.argument("targetPath", NbtPathArgument.nbtPath()).executes(context -> {
-                                            double result = java.lang.Math.acos(Utils.getScore(context.getSource(), ScoreHolderArgument.getName(context, "baseHolder"), ObjectiveArgument.getObjective(context, "baseScore")));
+                                            double result = java.lang.Math.acos(Utils.getScore(context.getSource().getServer(), ScoreHolderArgument.getName(context, "baseHolder"), ObjectiveArgument.getObjective(context, "baseScore")));
                                             Utils.setData(context, "targetTarget", "targetPath", DoubleTag.valueOf(result));
                                             Utils.sendTCdFeedback(context,"mcd.com.fho4565.command.math.success", String.valueOf(result));
                                             return (int) result;
@@ -354,13 +354,13 @@ public class Math {
                                 .then(Commands.literal("score")
                                         .then(Commands.argument("baseHolder", ScoreHolderArgument.scoreHolder())
                                         .then(Commands.argument("baseScore", ObjectiveArgument.objective()).executes(context -> {
-                                            double result = java.lang.Math.tan(Utils.getScore(context.getSource(), ScoreHolderArgument.getName(context, "baseHolder"), ObjectiveArgument.getObjective(context, "baseScore")));
+                                            double result = java.lang.Math.tan(Utils.getScore(context.getSource().getServer(), ScoreHolderArgument.getName(context, "baseHolder"), ObjectiveArgument.getObjective(context, "baseScore")));
                                             Utils.sendTCdFeedback(context,"mcd.com.fho4565.command.math.success", String.valueOf(result));
                                             return (int) result;
                                         })
                                                 .then(Commands.argument("targetTarget", ResourceLocationArgument.id())
                                                         .then(Commands.argument("targetPath", NbtPathArgument.nbtPath()).executes(context -> {
-                                            double result = java.lang.Math.tan(Utils.getScore(context.getSource(), ScoreHolderArgument.getName(context, "baseHolder"), ObjectiveArgument.getObjective(context, "baseScore")));
+                                            double result = java.lang.Math.tan(Utils.getScore(context.getSource().getServer(), ScoreHolderArgument.getName(context, "baseHolder"), ObjectiveArgument.getObjective(context, "baseScore")));
                                             Utils.setData(context, "targetTarget", "targetPath", DoubleTag.valueOf(result));
                                             Utils.sendTCdFeedback(context,"mcd.com.fho4565.command.math.success", String.valueOf(result));
                                             return (int) result;
@@ -396,13 +396,13 @@ public class Math {
                                 .then(Commands.literal("score")
                                         .then(Commands.argument("baseHolder", ScoreHolderArgument.scoreHolder())
                                         .then(Commands.argument("baseScore", ObjectiveArgument.objective()).executes(context -> {
-                                            double result = java.lang.Math.cos(Utils.getScore(context.getSource(), ScoreHolderArgument.getName(context, "baseHolder"), ObjectiveArgument.getObjective(context, "baseScore")));
+                                            double result = java.lang.Math.cos(Utils.getScore(context.getSource().getServer(), ScoreHolderArgument.getName(context, "baseHolder"), ObjectiveArgument.getObjective(context, "baseScore")));
                                             Utils.sendTCdFeedback(context,"mcd.com.fho4565.command.math.success", String.valueOf(result));
                                             return (int) result;
                                         })
                                                 .then(Commands.argument("targetTarget", ResourceLocationArgument.id())
                                                         .then(Commands.argument("targetPath", NbtPathArgument.nbtPath()).executes(context -> {
-                                            double result = java.lang.Math.cos(Utils.getScore(context.getSource(), ScoreHolderArgument.getName(context, "baseHolder"), ObjectiveArgument.getObjective(context, "baseScore")));
+                                            double result = java.lang.Math.cos(Utils.getScore(context.getSource().getServer(), ScoreHolderArgument.getName(context, "baseHolder"), ObjectiveArgument.getObjective(context, "baseScore")));
                                             Utils.setData(context, "targetTarget", "targetPath", DoubleTag.valueOf(result));
                                             Utils.sendTCdFeedback(context,"mcd.com.fho4565.command.math.success", String.valueOf(result));
                                             return (int) result;
@@ -438,13 +438,13 @@ public class Math {
                                 .then(Commands.literal("score")
                                         .then(Commands.argument("baseHolder", ScoreHolderArgument.scoreHolder())
                                         .then(Commands.argument("baseScore", ObjectiveArgument.objective()).executes(context -> {
-                                            double result = java.lang.Math.sin(Utils.getScore(context.getSource(), ScoreHolderArgument.getName(context, "baseHolder"), ObjectiveArgument.getObjective(context, "baseScore")));
+                                            double result = java.lang.Math.sin(Utils.getScore(context.getSource().getServer(), ScoreHolderArgument.getName(context, "baseHolder"), ObjectiveArgument.getObjective(context, "baseScore")));
                                             Utils.sendTCdFeedback(context,"mcd.com.fho4565.command.math.success", String.valueOf(result));
                                             return (int) result;
                                         })
                                                 .then(Commands.argument("targetTarget", ResourceLocationArgument.id())
                                                         .then(Commands.argument("targetPath", NbtPathArgument.nbtPath()).executes(context -> {
-                                            double result = java.lang.Math.sin(Utils.getScore(context.getSource(), ScoreHolderArgument.getName(context, "baseHolder"), ObjectiveArgument.getObjective(context, "baseScore")));
+                                            double result = java.lang.Math.sin(Utils.getScore(context.getSource().getServer(), ScoreHolderArgument.getName(context, "baseHolder"), ObjectiveArgument.getObjective(context, "baseScore")));
                                             Utils.setData(context, "targetTarget", "targetPath", DoubleTag.valueOf(result));
                                             Utils.sendTCdFeedback(context,"mcd.com.fho4565.command.math.success", String.valueOf(result));
                                             return (int) result;
@@ -513,14 +513,14 @@ public class Math {
                                         .then(Commands.argument("a", ObjectiveArgument.objective())
                                                 .then(Commands.argument("bHolder", ScoreHolderArgument.scoreHolder())
                                                         .then(Commands.argument("b", ObjectiveArgument.objective()).executes(context -> {
-                                                            double result = java.lang.Math.max(Utils.getScore(context.getSource(), ScoreHolderArgument.getName(context, "aHolder"), ObjectiveArgument.getObjective(context, "a")),
-                                                                    Utils.getScore(context.getSource(), ScoreHolderArgument.getName(context, "bHolder"), ObjectiveArgument.getObjective(context, "b")));
+                                                            double result = java.lang.Math.max(Utils.getScore(context.getSource().getServer(), ScoreHolderArgument.getName(context, "aHolder"), ObjectiveArgument.getObjective(context, "a")),
+                                                                    Utils.getScore(context.getSource().getServer(), ScoreHolderArgument.getName(context, "bHolder"), ObjectiveArgument.getObjective(context, "b")));
                                                             Utils.sendTCdFeedback(context,"mcd.com.fho4565.command.math.success", String.valueOf(result));
                                                             return (int) result;
                                                         })
                                                                 .then(Commands.argument("targetTarget", ResourceLocationArgument.id())
                                                                         .then(Commands.argument("targetPath", NbtPathArgument.nbtPath()).executes(context -> {
-                                                            double result = java.lang.Math.max(Utils.getScore(context.getSource(), ScoreHolderArgument.getName(context, "aHolder"), ObjectiveArgument.getObjective(context, "a")), Utils.getScore(context.getSource(), ScoreHolderArgument.getName(context, "bHolder"), ObjectiveArgument.getObjective(context, "b")));
+                                                            double result = java.lang.Math.max(Utils.getScore(context.getSource().getServer(), ScoreHolderArgument.getName(context, "aHolder"), ObjectiveArgument.getObjective(context, "a")), Utils.getScore(context.getSource().getServer(), ScoreHolderArgument.getName(context, "bHolder"), ObjectiveArgument.getObjective(context, "b")));
                                                             Utils.sendTCdFeedback(context,"mcd.com.fho4565.command.math.success", String.valueOf(result));
                                                             return (int) result;
                                                         })))))))))
@@ -561,16 +561,16 @@ public class Math {
                                         .then(Commands.argument("a", ObjectiveArgument.objective())
                                                 .then(Commands.argument("bHolder", ScoreHolderArgument.scoreHolder())
                                                         .then(Commands.argument("b", ObjectiveArgument.objective()).executes(context -> {
-                                                            double result = java.lang.Math.min(Utils.getScore(context.getSource(), ScoreHolderArgument.getName(context, "aHolder"), ObjectiveArgument.getObjective(context, "a")),
-                                                                    Utils.getScore(context.getSource(), ScoreHolderArgument.getName(context, "bHolder"), ObjectiveArgument.getObjective(context, "b")));
+                                                            double result = java.lang.Math.min(Utils.getScore(context.getSource().getServer(), ScoreHolderArgument.getName(context, "aHolder"), ObjectiveArgument.getObjective(context, "a")),
+                                                                    Utils.getScore(context.getSource().getServer(), ScoreHolderArgument.getName(context, "bHolder"), ObjectiveArgument.getObjective(context, "b")));
                                                             Utils.sendTCdFeedback(context,"mcd.com.fho4565.command.math.success", String.valueOf(result));
                                                             return (int) result;
                                                         })
                                                                 .then(Commands.argument("targetTarget", ResourceLocationArgument.id())
                                                                         .then(Commands.argument("targetPath", NbtPathArgument.nbtPath()).executes(context -> {
-                                                            double result = java.lang.Math.min(Utils.getScore(context.getSource(), ScoreHolderArgument.getName(context, "aHolder"), ObjectiveArgument.getObjective(context, "a")),
+                                                            double result = java.lang.Math.min(Utils.getScore(context.getSource().getServer(), ScoreHolderArgument.getName(context, "aHolder"), ObjectiveArgument.getObjective(context, "a")),
 
-                                                                    Utils.getScore(context.getSource(), ScoreHolderArgument.getName(context, "bHolder"), ObjectiveArgument.getObjective(context, "b")));
+                                                                    Utils.getScore(context.getSource().getServer(), ScoreHolderArgument.getName(context, "bHolder"), ObjectiveArgument.getObjective(context, "b")));
                                                             Utils.setData(context, "targetTarget", "targetPath", DoubleTag.valueOf(result));
                                                             Utils.sendTCdFeedback(context,"mcd.com.fho4565.command.math.success", String.valueOf(result));
                                                             return (int) result;
@@ -593,13 +593,13 @@ public class Math {
                                 .then(Commands.literal("score")
                                         .then(Commands.argument("baseHolder", ScoreHolderArgument.scoreHolder())
                                         .then(Commands.argument("baseScore", ObjectiveArgument.objective()).executes(context -> {
-                                            double result = java.lang.Math.abs(Utils.getScore(context.getSource(), ScoreHolderArgument.getName(context, "baseHolder"), ObjectiveArgument.getObjective(context, "baseScore")));
+                                            double result = java.lang.Math.abs(Utils.getScore(context.getSource().getServer(), ScoreHolderArgument.getName(context, "baseHolder"), ObjectiveArgument.getObjective(context, "baseScore")));
                                             Utils.sendTCdFeedback(context,"mcd.com.fho4565.command.math.success", String.valueOf(result));
                                             return (int) result;
                                         })
                                                 .then(Commands.argument("targetTarget", ResourceLocationArgument.id())
                                                         .then(Commands.argument("targetPath", NbtPathArgument.nbtPath()).executes(context -> {
-                                            double result = java.lang.Math.abs(Utils.getScore(context.getSource(), ScoreHolderArgument.getName(context, "baseHolder"), ObjectiveArgument.getObjective(context, "baseScore")));
+                                            double result = java.lang.Math.abs(Utils.getScore(context.getSource().getServer(), ScoreHolderArgument.getName(context, "baseHolder"), ObjectiveArgument.getObjective(context, "baseScore")));
                                             Utils.setData(context, "targetTarget", "targetPath", DoubleTag.valueOf(result));
                                             Utils.sendTCdFeedback(context,"mcd.com.fho4565.command.math.success", String.valueOf(result));
                                             return (int) result;
@@ -654,16 +654,16 @@ public class Math {
                                                 .then(Commands.argument("baseScore", ObjectiveArgument.objective())
                                                         .then(Commands.argument("exponentHolder", ScoreHolderArgument.scoreHolder())
                                                                 .then(Commands.argument("exponentScore", ObjectiveArgument.objective()).executes(context -> {
-                                                            double result = java.lang.Math.pow(Utils.getScore(context.getSource(), ScoreHolderArgument.getName(context, "baseHolder"), ObjectiveArgument.getObjective(context, "baseScore")),
-                                                                    Utils.getScore(context.getSource(), ScoreHolderArgument.getName(context, "exponentHolder"), ObjectiveArgument.getObjective(context, "exponentScore")));
+                                                            double result = java.lang.Math.pow(Utils.getScore(context.getSource().getServer(), ScoreHolderArgument.getName(context, "baseHolder"), ObjectiveArgument.getObjective(context, "baseScore")),
+                                                                    Utils.getScore(context.getSource().getServer(), ScoreHolderArgument.getName(context, "exponentHolder"), ObjectiveArgument.getObjective(context, "exponentScore")));
                                                             Utils.sendTCdFeedback(context,"mcd.com.fho4565.command.math.success", String.valueOf(result));
                                                             return (int) result;
                                                         })
                                                                         .then(Commands.argument("targetTarget", ResourceLocationArgument.id())
                                                                                 .then(Commands.argument("targetPath", NbtPathArgument.nbtPath()).executes(context -> {
-                                                            double result = java.lang.Math.pow(Utils.getScore(context.getSource(), ScoreHolderArgument.getName(context, "baseHolder"), ObjectiveArgument.getObjective(context, "baseScore")),
+                                                            double result = java.lang.Math.pow(Utils.getScore(context.getSource().getServer(), ScoreHolderArgument.getName(context, "baseHolder"), ObjectiveArgument.getObjective(context, "baseScore")),
 
-                                                                    Utils.getScore(context.getSource(), ScoreHolderArgument.getName(context, "exponentHolder"), ObjectiveArgument.getObjective(context, "exponentScore")));
+                                                                    Utils.getScore(context.getSource().getServer(), ScoreHolderArgument.getName(context, "exponentHolder"), ObjectiveArgument.getObjective(context, "exponentScore")));
                                                             Utils.setData(context, "targetTarget", "targetPath", DoubleTag.valueOf(result));
                                                             Utils.sendTCdFeedback(context,"mcd.com.fho4565.command.math.success", String.valueOf(result));
                                                             return (int) result;
@@ -686,13 +686,13 @@ public class Math {
                                 .then(Commands.literal("score")
                                         .then(Commands.argument("baseHolder", ScoreHolderArgument.scoreHolder())
                                         .then(Commands.argument("baseScore", ObjectiveArgument.objective()).executes(context -> {
-                                            double result = java.lang.Math.sqrt(Utils.getScore(context.getSource(), ScoreHolderArgument.getName(context, "baseHolder"), ObjectiveArgument.getObjective(context, "baseScore")));
+                                            double result = java.lang.Math.sqrt(Utils.getScore(context.getSource().getServer(), ScoreHolderArgument.getName(context, "baseHolder"), ObjectiveArgument.getObjective(context, "baseScore")));
                                             Utils.sendTCdFeedback(context,"mcd.com.fho4565.command.math.success", String.valueOf(result));
                                             return (int) result;
                                         })
                                                 .then(Commands.argument("targetTarget", ResourceLocationArgument.id())
                                                         .then(Commands.argument("targetPath", NbtPathArgument.nbtPath()).executes(context -> {
-                                            double result = java.lang.Math.sqrt(Utils.getScore(context.getSource(), ScoreHolderArgument.getName(context, "baseHolder"), ObjectiveArgument.getObjective(context, "baseScore")));
+                                            double result = java.lang.Math.sqrt(Utils.getScore(context.getSource().getServer(), ScoreHolderArgument.getName(context, "baseHolder"), ObjectiveArgument.getObjective(context, "baseScore")));
                                             Utils.setData(context, "targetTarget", "targetPath", DoubleTag.valueOf(result));
                                             Utils.sendTCdFeedback(context,"mcd.com.fho4565.command.math.success", String.valueOf(result));
                                             return (int) result;

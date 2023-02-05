@@ -1,6 +1,6 @@
-package com.fho4565.commands.GUI.help;
+package com.fho4565.gui.help;
 
-import com.fho4565.commands.GUI.Menus;
+import com.fho4565.gui.Menus;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.entity.player.Inventory;

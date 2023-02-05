@@ -1,6 +1,6 @@
 package com.fho4565.commands;
 
-import com.fho4565.commands.GUI.help.HelpMenu;
+import com.fho4565.gui.help.HelpMenu;
 import com.mojang.brigadier.exceptions.SimpleCommandExceptionType;
 import io.netty.buffer.Unpooled;
 import net.minecraft.commands.Commands;
