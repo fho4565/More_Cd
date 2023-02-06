@@ -1,7 +1,7 @@
 package com.fho4565.init;
 
-import com.fho4565.define.AbstractOption;
-import com.fho4565.define.ScoreboardDisplayOption;
+import com.fho4565.define.option.AbstractOption;
+import com.fho4565.define.option.ScoreboardDisplayOption;
 import com.fho4565.save.SaveOptions;
 import net.minecraft.world.level.storage.LevelResource;
 import net.minecraftforge.event.world.WorldEvent;

@@ -1,6 +1,6 @@
 package com.fho4565.overlay;
 
-import com.fho4565.define.ScoreboardDisplayOption;
+import com.fho4565.define.option.ScoreboardDisplayOption;
 import com.fho4565.main.Utils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.server.IntegratedServer;

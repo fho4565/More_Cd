@@ -1,6 +1,6 @@
 package com.fho4565.commands;
 
-import com.fho4565.define.ScoreboardDisplayOption;
+import com.fho4565.define.option.ScoreboardDisplayOption;
 import com.fho4565.main.Utils;
 import com.mojang.brigadier.Command;
 import com.mojang.brigadier.arguments.BoolArgumentType;

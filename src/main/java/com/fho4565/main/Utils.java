@@ -1,6 +1,6 @@
 package com.fho4565.main;
 
-import com.fho4565.define.ScoreboardDisplayOption;
+import com.fho4565.define.option.ScoreboardDisplayOption;
 import com.mojang.brigadier.context.CommandContext;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import com.mojang.brigadier.suggestion.SuggestionProvider;

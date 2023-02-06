@@ -1,4 +1,4 @@
-package com.fho4565.define;
+package com.fho4565.define.option;
 
 public enum OptionType {
     ScoreboardDisplayOption

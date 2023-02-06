@@ -1,6 +1,6 @@
 package com.fho4565.save;
 
-import com.fho4565.define.AbstractOption;
+import com.fho4565.define.option.AbstractOption;
 import com.fho4565.init.InitOptions;
 import com.fho4565.main.Utils;
 import net.minecraftforge.event.world.WorldEvent;
