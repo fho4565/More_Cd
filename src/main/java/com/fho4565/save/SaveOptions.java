@@ -3,6 +3,7 @@ package com.fho4565.save;
 import com.fho4565.define.option.AbstractOption;
 import com.fho4565.init.InitOptions;
 import com.fho4565.main.Utils;
+import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraftforge.event.world.WorldEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -20,11 +21,13 @@ public class SaveOptions {
     public static boolean saved = false;
     @SubscribeEvent
     public static void onWorldSave(WorldEvent.Save event) throws IOException {
+        if(event.getWorld().)
         if(!saved){
             save(Utils.SCOREBOARD_DISPLAY_OPTIONS, new File(WORLD_PATH + "\\mcd\\scoreboardOptions"));
             saved = true;
         }
         InitOptions.read = false;
+        System.out.println("saved");
     }
 
     public static <T extends AbstractOption> void save(ArrayList<T> options, File f) throws IOException {

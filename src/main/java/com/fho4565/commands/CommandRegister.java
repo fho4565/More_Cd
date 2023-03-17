@@ -20,10 +20,11 @@ public class CommandRegister {
         Ride.register();
         Run.register();
         World.register();
-        helpMcd.register();
+        HelpMcd.register();
         DataString.register();
         Explode.register();
 //        Memory.register();
-        ScoreboardDisplayer.register();
+//        ScoreboardDisplayer.register();
+//        Render.register();
     }
 }

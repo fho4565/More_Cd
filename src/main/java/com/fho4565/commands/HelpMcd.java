@@ -23,7 +23,7 @@ import net.minecraftforge.network.NetworkHooks;
 import org.jetbrains.annotations.NotNull;
 
 @OnlyIn(Dist.CLIENT)
-public class helpMcd {
+public class HelpMcd {
     public static void register() {
         CommandRegister.dispatcher.register(
                 Commands.literal("helpMcd").executes(context -> {

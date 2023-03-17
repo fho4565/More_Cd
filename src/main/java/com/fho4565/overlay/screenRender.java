@@ -14,7 +14,7 @@ import net.minecraftforge.fml.common.Mod;
 import java.util.Objects;
 
 @Mod.EventBusSubscriber({Dist.CLIENT})
-public class scoreboardOverlay {
+public class screenRender {
     @SubscribeEvent(priority = EventPriority.NORMAL)
     public static void eventHandler(RenderGameOverlayEvent.Pre event) {
         if (event.getType() == RenderGameOverlayEvent.ElementType.ALL) {

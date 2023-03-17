@@ -70,7 +70,7 @@ public class ScoreboardDisplayOption extends AbstractOption {
 
     @Override
     public String toSaveable() {
-        return "ScoreboardDisplayOption" + OPTION_SEPARATOR +
+        return  AbstractOption.OptionType.ScoreboardDisplayOption.name() + OPTION_SEPARATOR +
                 this.objectiveName +
                 OPTION_SEPARATOR +
                 this.displayX +

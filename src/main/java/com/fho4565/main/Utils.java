@@ -1,9 +1,12 @@
 package com.fho4565.main;
 
 import com.fho4565.define.option.ScoreboardDisplayOption;
+import com.google.common.collect.Iterables;
 import com.mojang.brigadier.context.CommandContext;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import com.mojang.brigadier.suggestion.SuggestionProvider;
+import com.mojang.brigadier.suggestion.Suggestions;
+import com.mojang.brigadier.suggestion.SuggestionsBuilder;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.SharedSuggestionProvider;
 import net.minecraft.commands.arguments.NbtPathArgument;
@@ -24,6 +27,7 @@ import org.apache.logging.log4j.Logger;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
+import java.util.concurrent.CompletableFuture;
 
 
 public class Utils{
@@ -32,11 +36,14 @@ public class Utils{
     public static String WORLD_PATH = "";
     public static String SCOREBOARD_OPTIONS_PATH = WORLD_PATH + "\\mcd\\scoreboardOptions";
     public static final ArrayList<ScoreboardDisplayOption> SCOREBOARD_DISPLAY_OPTIONS = new ArrayList<>();
-    public static SuggestionProvider<CommandSourceStack> createCommandSuggestion(String[] strings){
+    public static SuggestionProvider<CommandSourceStack> createCommandSuggestionC(String[] strings){
         return SuggestionProviders.register(new ResourceLocation(""),
                 (context, builder) ->
                         SharedSuggestionProvider.suggest(strings,
                                 builder));
+    }
+    public static CompletableFuture<Suggestions> createCommandSuggestion( String[] strings,SuggestionsBuilder builder){
+        return SharedSuggestionProvider.suggest(strings, builder);
     }
     public static String getWorldPath(CommandContext<CommandSourceStack> context){
         return context.getSource().getServer().getWorldPath(new LevelResource("")).toFile().getAbsolutePath();

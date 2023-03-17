@@ -24,6 +24,7 @@ public class InitOptions {
             WORLD_PATH = event.getWorld().getServer().getWorldPath(new LevelResource("")).toFile().getAbsolutePath();
             initOptionFiles();
         }
+        System.out.println("read");
     }
 
     public static void initOptionFiles() throws IOException {
@@ -65,7 +66,7 @@ public class InitOptions {
 
     private static ScoreboardDisplayOption toScoreboardDisplayOption(String s) {
         String[] str = s.split(AbstractOption.OPTION_SEPARATOR);
-        if (str[0].equals("ScoreboardDisplayOption")) {
+        if (str[0].equals(AbstractOption.OptionType.ScoreboardDisplayOption.name())) {
             if(!SCOREBOARD_DISPLAY_OPTIONS.isEmpty()) {
                 for (ScoreboardDisplayOption sdo : SCOREBOARD_DISPLAY_OPTIONS) {
                     if (sdo == null || !sdo.getObjectiveName().equals(str[1])) {
