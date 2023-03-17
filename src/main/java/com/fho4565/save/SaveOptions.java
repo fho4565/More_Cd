@@ -21,7 +21,6 @@ public class SaveOptions {
     public static boolean saved = false;
     @SubscribeEvent
     public static void onWorldSave(WorldEvent.Save event) throws IOException {
-        if(event.getWorld().)
         if(!saved){
             save(Utils.SCOREBOARD_DISPLAY_OPTIONS, new File(WORLD_PATH + "\\mcd\\scoreboardOptions"));
             saved = true;
