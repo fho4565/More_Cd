@@ -1,7 +1,5 @@
 package com.fho4565.main;
 
-import com.fho4565.define.option.ScoreboardDisplayOption;
-import com.google.common.collect.Iterables;
 import com.mojang.brigadier.context.CommandContext;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import com.mojang.brigadier.suggestion.SuggestionProvider;
@@ -24,7 +22,6 @@ import net.minecraft.world.scores.Scoreboard;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.concurrent.CompletableFuture;
@@ -32,10 +29,6 @@ import java.util.concurrent.CompletableFuture;
 
 public class Utils{
     public static final String MODID = "more_cd";
-    public static final Logger LOGGER = LogManager.getLogger();
-    public static String WORLD_PATH = "";
-    public static String SCOREBOARD_OPTIONS_PATH = WORLD_PATH + "\\mcd\\scoreboardOptions";
-    public static final ArrayList<ScoreboardDisplayOption> SCOREBOARD_DISPLAY_OPTIONS = new ArrayList<>();
     public static SuggestionProvider<CommandSourceStack> createCommandSuggestionC(String[] strings){
         return SuggestionProviders.register(new ResourceLocation(""),
                 (context, builder) ->
@@ -58,17 +51,6 @@ public class Utils{
             Score score = scoreboard.getOrCreatePlayerScore(playerName, objective);
             return score.getScore();
         }
-    }
-    public static int findScoreboardOption(String objectiveName){
-        if(SCOREBOARD_DISPLAY_OPTIONS.isEmpty()){
-            return -1;
-        }
-        for (int i = 0; i < SCOREBOARD_DISPLAY_OPTIONS.size(); i++) {
-            if (SCOREBOARD_DISPLAY_OPTIONS.get(i).getObjectiveName().equals(objectiveName)) {
-                return i;
-            }
-        }
-        return -1;
     }
     public static Tag getData(CommandContext<CommandSourceStack> commandContext,String resourceLocation, String path) throws CommandSyntaxException {
         Collection<Tag> tags = NbtPathArgument.getPath(commandContext,path).get(commandContext.getSource().getServer().getCommandStorage().get(ResourceLocationArgument.getId(commandContext,resourceLocation)));

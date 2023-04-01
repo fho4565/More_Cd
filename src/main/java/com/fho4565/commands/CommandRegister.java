@@ -23,8 +23,5 @@ public class CommandRegister {
         HelpMcd.register();
         DataString.register();
         Explode.register();
-//        Memory.register();
-//        ScoreboardDisplayer.register();
-//        Render.register();
     }
 }
