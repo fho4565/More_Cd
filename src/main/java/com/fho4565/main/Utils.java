@@ -60,14 +60,14 @@ public class Utils{
     public static void setData(CommandContext<CommandSourceStack> commandContext,String sourceResourceLocation, String sourcePath,Tag tag) throws CommandSyntaxException {
         NbtPathArgument.getPath(commandContext,sourcePath).set(commandContext.getSource().getServer().getCommandStorage().get(ResourceLocationArgument.getId(commandContext, sourceResourceLocation)), () -> tag);
     }
-    public static void sendTCdFeedback(CommandContext<net.minecraft.commands.CommandSourceStack> commandContext, String key,String ...args){
-        commandContext.getSource().sendSuccess(new TranslatableComponent(key,args), false);
+    public static void sendTCdFeedback(CommandContext<net.minecraft.commands.CommandSourceStack> commandContext, String key,String ...strings){
+        commandContext.getSource().sendSuccess(new TranslatableComponent(key, (Object[]) strings), false);
     }
-    public static void sendTCdFeedback(CommandContext<net.minecraft.commands.CommandSourceStack> commandContext, String key, Boolean aborted,String ...args){
+    public static void sendTCdFeedback(CommandContext<net.minecraft.commands.CommandSourceStack> commandContext, String key, Boolean aborted,String ...strings){
         if(!aborted){
-            commandContext.getSource().sendSuccess(new TranslatableComponent(key,args), false);
+            commandContext.getSource().sendSuccess(new TranslatableComponent(key, (Object[]) strings), false);
         }else{
-            commandContext.getSource().sendFailure(new TranslatableComponent(key,args));
+            commandContext.getSource().sendFailure(new TranslatableComponent(key, (Object[]) strings));
         }
     }
     public static void sendCdFeedback(CommandContext<net.minecraft.commands.CommandSourceStack> commandContext, String content){
