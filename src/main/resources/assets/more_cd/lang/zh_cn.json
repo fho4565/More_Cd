@@ -45,7 +45,9 @@
 "mcd.com.fho4565.command.run.single.failed": "你不能执行空命令！",
 
 "mcd.com.fho4565.command.world.spawnPoint.success": "当前世界出生点%s坐标为：%s",
-"mcd.com.fho4565.command.world.version.success": "当前游戏版本为：%s",
+"mcd.com.fho4565.command.world.majorVersion.success": "当前游戏主版本号为：%s",
+"mcd.com.fho4565.command.world.subVersion.success": "当前游戏子版本号为：%s",
+"mcd.com.fho4565.command.world.revisedVersion.success": "当前游戏修正版本号为：%s",
 "mcd.com.fho4565.command.world.tickTime.success": "当前世界的tick time为：%s",
 "mcd.com.fho4565.command.world.tps.success": "当前世界的tps为：%s",
 
@@ -145,11 +147,13 @@
 "mcd.com.fho4565.help.page12.line0": "§5§l/world",
 "mcd.com.fho4565.help.page12.line1": "§9格式：/world <type>",
 "mcd.com.fho4565.help.page12.line2": "§1信息类型：",
-"mcd.com.fho4565.help.page12.line3": "§0spawnX：§2§o获取世界出生点的X坐标",
-"mcd.com.fho4565.help.page12.line4": "§0spawnY：§2§o获取世界出生点的Y坐标",
-"mcd.com.fho4565.help.page12.line5": "§0spawnZ：§2§o获取世界出生点的Z坐标",
-"mcd.com.fho4565.help.page12.line6": "§0version：§2§o获取游戏版本(没有.)",
-"mcd.com.fho4565.help.page12.line7": "§0tickTime：§2§o获取世界的tickTime",
-"mcd.com.fho4565.help.page12.line8": "§0tps：§2§o获取世界的tps",
-"mcd.com.fho4565.help.page12.line9": "§3执行后：获取世界信息"
+  "mcd.com.fho4565.help.page12.line3":"§0spawnX：§2§o获取世界出生点的X坐标",
+  "mcd.com.fho4565.help.page12.line4":"§0spawnY：§2§o获取世界出生点的Y坐标",
+  "mcd.com.fho4565.help.page12.line5":"§0spawnZ：§2§o获取世界出生点的Z坐标",
+  "mcd.com.fho4565.help.page12.line6":"§0version：§2§o获取游戏主版本号",
+  "mcd.com.fho4565.help.page12.line7":"§0version：§2§o获取游戏子版本号",
+  "mcd.com.fho4565.help.page12.line8":"§0version：§2§o获取游戏修正版本号",
+  "mcd.com.fho4565.help.page12.line9":"§0tickTime：§2§o获取世界的tickTime",
+  "mcd.com.fho4565.help.page12.line10":"§0tps：§2§o获取世界的tps",
+  "mcd.com.fho4565.help.page12.line11":"§3执行后：获取世界信息"
 }
