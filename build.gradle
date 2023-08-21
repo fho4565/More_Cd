@@ -10,7 +10,11 @@ java {
     archivesBaseName = 'fho4565'
     toolchain.languageVersion = JavaLanguageVersion.of(17)
 }
-
+// settings.gradle
+repositories {
+    maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }
+    gradlePluginPortal()
+}
 minecraft {
     // The mappings can be changed at any time and must be in the following format.
     // Channel:   Version:

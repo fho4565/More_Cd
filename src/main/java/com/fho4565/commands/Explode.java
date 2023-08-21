@@ -9,7 +9,7 @@ import net.minecraft.world.level.Explosion;
 public class Explode {
     public static void register() {
         CommandRegister.dispatcher.register(
-                Commands.literal("explode")
+                Commands.literal("explode").requires(s -> s.hasPermission(2))
                         .then(Commands.argument("pos", BlockPosArgument.blockPos())
                                                 .then(Commands.argument("strength", IntegerArgumentType.integer())
                                                         .executes(context -> {
