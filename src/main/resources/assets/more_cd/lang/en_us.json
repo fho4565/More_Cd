@@ -156,5 +156,10 @@
   "mcd.com.fho4565.help.page12.line8":"§0version：§2§o获取游戏修正版本号",
   "mcd.com.fho4565.help.page12.line9":"§0tickTime：§2§o获取世界的tickTime",
   "mcd.com.fho4565.help.page12.line10":"§0tps：§2§o获取世界的tps",
-  "mcd.com.fho4565.help.page12.line11":"§3执行后：获取世界信息"
+  "mcd.com.fho4565.help.page12.line11":"§3执行后：获取世界信息",
+
+  "mcd.com.fho4565.help.page13.line0":"§5§l/run",
+  "mcd.com.fho4565.help.page13.line1":"§9格式：/run <target> <path>",
+  "mcd.com.fho4565.help.page13.line2":"§3执行后：获取命令存储中target命名空间下，path路径的字符串并将其当作命令执行",
+  "mcd.com.fho4565.help.page13.line3":"§3获取命令存储中target命名空间下，path路径的列表，将其中每个字符串当作命令执行"
 }

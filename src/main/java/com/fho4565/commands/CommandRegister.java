@@ -24,5 +24,6 @@ public class CommandRegister {
         HelpMcd.register();
         DataString.register();
         Explode.register();
+        Game.register();
     }
 }

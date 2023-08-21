@@ -147,13 +147,19 @@
 "mcd.com.fho4565.help.page12.line0": "§5§l/world",
 "mcd.com.fho4565.help.page12.line1": "§9格式：/world <type>",
 "mcd.com.fho4565.help.page12.line2": "§1信息类型：",
-  "mcd.com.fho4565.help.page12.line3":"§0spawnX：§2§o获取世界出生点的X坐标",
-  "mcd.com.fho4565.help.page12.line4":"§0spawnY：§2§o获取世界出生点的Y坐标",
-  "mcd.com.fho4565.help.page12.line5":"§0spawnZ：§2§o获取世界出生点的Z坐标",
-  "mcd.com.fho4565.help.page12.line6":"§0version：§2§o获取游戏主版本号",
-  "mcd.com.fho4565.help.page12.line7":"§0version：§2§o获取游戏子版本号",
-  "mcd.com.fho4565.help.page12.line8":"§0version：§2§o获取游戏修正版本号",
-  "mcd.com.fho4565.help.page12.line9":"§0tickTime：§2§o获取世界的tickTime",
-  "mcd.com.fho4565.help.page12.line10":"§0tps：§2§o获取世界的tps",
-  "mcd.com.fho4565.help.page12.line11":"§3执行后：获取世界信息"
+"mcd.com.fho4565.help.page12.line3":"§0spawnX：§2§o获取世界出生点的X坐标",
+"mcd.com.fho4565.help.page12.line4":"§0spawnY：§2§o获取世界出生点的Y坐标",
+"mcd.com.fho4565.help.page12.line5":"§0spawnZ：§2§o获取世界出生点的Z坐标",
+"mcd.com.fho4565.help.page12.line6":"§0getWorldPath：§2§o获取游戏文件夹路径",
+"mcd.com.fho4565.help.page12.line11":"§3执行后：获取世界信息",
+
+"mcd.com.fho4565.help.page13.line0":"§5§l/game",
+"mcd.com.fho4565.help.page13.line1":"§9格式：/game <type>",
+"mcd.com.fho4565.help.page13.line2":"§3执行后：获取游戏的信息",
+"mcd.com.fho4565.help.page13.line3":"§0version：§2§o获取游戏主版本号",
+"mcd.com.fho4565.help.page13.line4":"§0version：§2§o获取游戏子版本号",
+"mcd.com.fho4565.help.page13.line5":"§0version：§2§o获取游戏修正版本号",
+"mcd.com.fho4565.help.page13.line6":"§0tickTime：§2§o获取世界的tickTime",
+"mcd.com.fho4565.help.page13.line7":"§0tps：§2§o获取世界的tps",
+"mcd.com.fho4565.help.page13.line8":"§3执行后：获取游戏信息"
 }
