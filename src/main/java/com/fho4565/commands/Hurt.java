@@ -27,7 +27,7 @@ public class Hurt {
                                             return IntegerArgumentType.getInteger(context, "damage");
                                         })
                                         .then(Commands.literal("entity")
-                                                .then(Commands.argument("sourceEntity",EntityArgument.entity())
+                                                .then(Commands.argument("sourceEntity", EntityArgument.entity())
                                                         .executes(context -> {
                                                             int damage = IntegerArgumentType.getInteger(context, "damage");
                                                             if (damage <= 0) {
@@ -35,7 +35,7 @@ public class Hurt {
                                                                 return 0;
                                                             }
                                                             for (Entity entity : EntityArgument.getEntities(context, "entity")) {
-                                                                entity.hurt(DamageSource.mobAttack((LivingEntity) EntityArgument.getEntity(context,"sourceEntity")), damage);
+                                                                entity.hurt(DamageSource.mobAttack((LivingEntity) EntityArgument.getEntity(context, "sourceEntity")), damage);
                                                                 Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.hurt.success", entity.getName().getString(), String.valueOf(damage));
                                                             }
                                                             return IntegerArgumentType.getInteger(context, "damage");

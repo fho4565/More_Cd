@@ -20,8 +20,8 @@ public class DataString {
                                 .then(Commands.argument("sourcePath", NbtPathArgument.nbtPath())
                                         .then(Commands.literal("unicodeEncode").then(Commands.argument("targetTarget", ResourceLocationArgument.id()).then(Commands.argument("targetPath", NbtPathArgument.nbtPath()).executes(context -> {
                                             String str = Utils.getData(context, "sourceTarget", "sourcePath").getAsString();
-                                                char[] utfBytes = str.toCharArray();
-                                                StringBuilder unicodeBytes = new StringBuilder();
+                                            char[] utfBytes = str.toCharArray();
+                                            StringBuilder unicodeBytes = new StringBuilder();
                                             for (char utfByte : utfBytes) {
                                                 String hexB = Integer.toHexString(utfByte);
                                                 if (hexB.length() <= 2) {
@@ -29,25 +29,25 @@ public class DataString {
                                                 }
                                                 unicodeBytes.append("\\u").append(hexB);
                                             }
-                                            Utils.setData(context,"targetTarget", "targetPath",StringTag.valueOf(unicodeBytes.toString()));
-                                                return 1;
+                                            Utils.setData(context, "targetTarget", "targetPath", StringTag.valueOf(unicodeBytes.toString()));
+                                            return 1;
                                         }))))
                                         .then(Commands.literal("unicodeDecode").then(Commands.argument("targetTarget", ResourceLocationArgument.id()).then(Commands.argument("targetPath", NbtPathArgument.nbtPath()).executes(context -> {
                                             String str = Utils.getData(context, "sourceTarget", "sourcePath").getAsString();
-                                                Pattern pattern = Pattern.compile("(\\\\u(\\p{XDigit}{4}))");
-                                                Matcher matcher = pattern.matcher(str);
-                                                char ch;
-                                                while (matcher.find()) {
-                                                    ch = (char) Integer.parseInt(matcher.group(2), 16);
-                                                    str = str.replace(matcher.group(1), ch + "");
-                                                }
-                                            Utils.setData(context,"targetTarget", "targetPath",StringTag.valueOf(str));
+                                            Pattern pattern = Pattern.compile("(\\\\u(\\p{XDigit}{4}))");
+                                            Matcher matcher = pattern.matcher(str);
+                                            char ch;
+                                            while (matcher.find()) {
+                                                ch = (char) Integer.parseInt(matcher.group(2), 16);
+                                                str = str.replace(matcher.group(1), String.valueOf(ch));
+                                            }
+                                            Utils.setData(context, "targetTarget", "targetPath", StringTag.valueOf(str));
                                             return 1;
                                         }))))
                                         .then(Commands.literal("equals").then(Commands.argument("targetTarget", ResourceLocationArgument.id()).then(Commands.argument("targetPath", NbtPathArgument.nbtPath()).executes(context -> {
                                             String str = Utils.getData(context, "sourceTarget", "sourcePath").getAsString();
                                             String str_ = Utils.getData(context, "targetTarget", "targetPath").getAsString();
-                                            if(str.equals(str_)){
+                                            if (str.equals(str_)) {
                                                 Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.string.match.success");
                                                 return 1;
                                             } else {
@@ -107,15 +107,15 @@ public class DataString {
                                             }
                                         })))
                                         .then(Commands.literal("splitToArray").then(Commands.argument("targetTarget", ResourceLocationArgument.id()).then(Commands.argument("targetPath", NbtPathArgument.nbtPath()).executes(context -> {
-                                                            ListTag tags = new ListTag();
-                                                            char[] chars = Utils.getData(context, "sourceTarget", "sourcePath").getAsString().toCharArray();
-                                                            for (Character c : chars) {
-                                                                tags.add(StringTag.valueOf(String.valueOf(c)));
-                                                            }
-                                                            Utils.setData(context, "targetTarget", "targetPath", tags);
-                                                            Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.string.splitToArray.success");
-                                                            return 1;
-                                                        }))))
+                                            ListTag tags = new ListTag();
+                                            char[] chars = Utils.getData(context, "sourceTarget", "sourcePath").getAsString().toCharArray();
+                                            for (Character c : chars) {
+                                                tags.add(StringTag.valueOf(String.valueOf(c)));
+                                            }
+                                            Utils.setData(context, "targetTarget", "targetPath", tags);
+                                            Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.string.splitToArray.success");
+                                            return 1;
+                                        }))))
                                         .then(Commands.literal("combineToString").then(Commands.argument("targetTarget", ResourceLocationArgument.id()).then(Commands.argument("targetPath", NbtPathArgument.nbtPath()).executes(context -> {
                                             ListTag chars = (ListTag) Utils.getData(context, "sourceTarget", "sourcePath");
                                             StringBuilder stringBuilder = new StringBuilder();
@@ -124,7 +124,7 @@ public class DataString {
                                             Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.string.combineToString.success");
                                             return 1;
                                         }))))
-                                        .then(Commands.literal("format").then(Commands.argument("targetTarget", ResourceLocationArgument.id()).then(Commands.argument("targetPath", NbtPathArgument.nbtPath()).then(Commands.argument("args",StringArgumentType.string()).executes(context -> {
+                                        .then(Commands.literal("format").then(Commands.argument("targetTarget", ResourceLocationArgument.id()).then(Commands.argument("targetPath", NbtPathArgument.nbtPath()).then(Commands.argument("args", StringArgumentType.string()).executes(context -> {
                                             String data = Utils.getData(context, "sourceTarget", "sourcePath").getAsString();
                                             Object[] args = StringArgumentType.getString(context, "args").split(",");
                                             String formatted = String.format(data, args);

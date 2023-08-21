@@ -9,6 +9,7 @@ import net.minecraftforge.fml.common.Mod;
 @Mod.EventBusSubscriber
 public class CommandRegister {
     public static CommandDispatcher<CommandSourceStack> dispatcher;
+
     @SubscribeEvent
     public static void onServerStaring(RegisterCommandsEvent event) {
         dispatcher = event.getDispatcher();

@@ -27,7 +27,7 @@ public class HelpMcd {
     public static void register() {
         CommandRegister.dispatcher.register(
                 Commands.literal("helpMcd").executes(context -> {
-                    if(context.getInput().contains("execute")){
+                    if (context.getInput().contains("execute")) {
                         throw new SimpleCommandExceptionType(new TranslatableComponent("mcd.com.fho4565.command.run.helpMcd.failed")).create();
                     }
                     ServerLevel level = context.getSource().getLevel();
