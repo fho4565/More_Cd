@@ -14,15 +14,16 @@
 
 "mcd.com.fho4565.command.math.success": "结果为%s",
 
-"mcd.com.fho4565.command.canPlaceBlock.enabled": "玩家%s现在可以放置方块",
-"mcd.com.fho4565.command.canPlaceBlock.disabled": "玩家%s现在不可以放置方块",
-"mcd.com.fho4565.command.canFly.enabled": "玩家%s现在可以飞行",
-"mcd.com.fho4565.command.canFly.disabled": "玩家%s现在不可以飞行",
-"mcd.com.fho4565.command.canPlaceBlock.enabledA": "玩家%s已经可以放置方块",
-"mcd.com.fho4565.command.canPlaceBlock.disabledA": "玩家%s已经不可以放置方块",
-"mcd.com.fho4565.command.canFly.enabledA": "玩家%s已经可以飞行",
-"mcd.com.fho4565.command.canFly.disabledA": "玩家%s已经不可以飞行",
-"mcd.com.fho4565.command.rightClick.success": "在位于%s的方块上模拟了%s的右键操作",
+"mcd.com.fho4565.command.player.canPlaceBlock.enabled": "玩家%s现在可以放置方块",
+"mcd.com.fho4565.command.player.canPlaceBlock.disabled": "玩家%s现在不可以放置方块",
+"mcd.com.fho4565.command.player.canFly.enabled": "玩家%s现在可以飞行",
+"mcd.com.fho4565.command.player.canFly.disabled": "玩家%s现在不可以飞行",
+"mcd.com.fho4565.command.player.canPlaceBlock.enabledA": "玩家%s已经可以放置方块",
+"mcd.com.fho4565.command.player.canPlaceBlock.disabledA": "玩家%s已经不可以放置方块",
+"mcd.com.fho4565.command.player.canFly.enabledA": "玩家%s已经可以飞行",
+"mcd.com.fho4565.command.player.canFly.disabledA": "玩家%s已经不可以飞行",
+"mcd.com.fho4565.command.player.rightClick.success": "在位于%s的方块上模拟了%s的右键操作",
+"mcd.com.fho4565.command.player.currentXp": "玩家%s当前经验值为%s",
 
 "mcd.com.fho4565.command.random.success": "已生成随机数%s",
 
@@ -45,11 +46,16 @@
 "mcd.com.fho4565.command.run.single.failed": "你不能执行空命令！",
 
 "mcd.com.fho4565.command.world.spawnPoint.success": "当前世界出生点%s坐标为：%s",
-"mcd.com.fho4565.command.world.majorVersion.success": "当前游戏主版本号为：%s",
-"mcd.com.fho4565.command.world.subVersion.success": "当前游戏子版本号为：%s",
-"mcd.com.fho4565.command.world.revisedVersion.success": "当前游戏修正版本号为：%s",
-"mcd.com.fho4565.command.world.tickTime.success": "当前世界的tick time为：%s",
-"mcd.com.fho4565.command.world.tps.success": "当前世界的tps为：%s",
+"mcd.com.fho4565.command.world.getWorldPath": "当前游戏文件夹为：%s",
+
+"mcd.com.fho4565.command.game.majorVersion": "当前游戏主版本号为：%s",
+"mcd.com.fho4565.command.game.subVersion": "当前游戏子版本号为：%s",
+"mcd.com.fho4565.command.game.revisedVersion": "当前游戏修正版本号为：%s",
+"mcd.com.fho4565.command.game.tickTime": "当前世界的tick time为：%s",
+"mcd.com.fho4565.command.game.freeMemory": "当前JVM剩余内存为：%s",
+"mcd.com.fho4565.command.game.totalMemory": "当前JVM总内存为：%s",
+"mcd.com.fho4565.command.game.maxMemory": "当前JVM最大内存为：%s",
+"mcd.com.fho4565.command.game.gc.success": "当前世界的tps为：%s",
 
 
 "mcd.com.fho4565.help.btn.left": "上一页",
@@ -66,6 +72,7 @@
 "mcd.com.fho4565.help.page1.line9": "§1/ride§d————§5骑乘实体",
 "mcd.com.fho4565.help.page1.line10": "§1/run§d————§5获取命令存储中字符串并将其当作命令执行",
 "mcd.com.fho4565.help.page1.line11": "§1/world§d————§5获取世界信息",
+"mcd.com.fho4565.help.page1.line12": "§1/game§d————§5获取游戏信息",
 
 "mcd.com.fho4565.help.page2.line0": "§5§l/hurt",
 "mcd.com.fho4565.help.page2.line1": "§9格式：/hurt <entity> <damage> <sourceEntity|damageSource>",
@@ -122,8 +129,9 @@
 "mcd.com.fho4565.help.page7.line3": "§1能力类型：",
 "mcd.com.fho4565.help.page7.line4": "§0canFly：§2§o允许飞行，若为FALSE，即使为创造模式也不能飞行。若玩家正在飞行，则玩家不会坠落",
 "mcd.com.fho4565.help.page7.line5": "§0canPlaceBlock：§2§o玩家是否可以放置方块，玩家依旧可以破坏方块",
-"mcd.com.fho4565.help.page7.line6": "§3执行后：获取或者修改玩家的能力，或者模拟右键操作",
-"mcd.com.fho4565.help.page7.line7": "§3模拟玩家右键操作",
+"mcd.com.fho4565.help.page7.line6": "§0currentXP：§2§o玩家当前经验值",
+"mcd.com.fho4565.help.page7.line7": "§3执行后：获取或者修改玩家的能力，或者模拟右键操作",
+"mcd.com.fho4565.help.page7.line8": "§3模拟玩家右键操作",
 
 "mcd.com.fho4565.help.page8.line0": "§5§l/random",
 "mcd.com.fho4565.help.page8.line1": "§9格式：/random [minValue] [maxValue]",

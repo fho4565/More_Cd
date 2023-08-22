@@ -22,7 +22,7 @@ public class World {
                             return context.getSource().getLevel().getLevelData().getZSpawn();
                         }))
                         .then(Commands.literal("getWorldPath").executes(context -> {
-                            Utils.sendCdFeedback(context, String.valueOf(context.getSource().getServer().getWorldPath(LevelResource.ROOT).toAbsolutePath()));
+                            Utils.sendTCdFeedback(context,"mcd.com.fho4565.command.world.spawnPoint.success", String.valueOf(context.getSource().getServer().getWorldPath(LevelResource.ROOT).toAbsolutePath()));
                             return 1;
                         }))
         );

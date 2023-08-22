@@ -26,16 +26,16 @@ public class Player {
                                                 context.getSource().getPlayerOrException().getAbilities().mayfly = option;
                                                 context.getSource().getPlayerOrException().onUpdateAbilities();
                                                 if (option) {
-                                                    Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.canFly.enabled", EntityArgument.getPlayer(context, "player").getName().getString());
+                                                    Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.player.canFly.enabled", EntityArgument.getPlayer(context, "player").getName().getString());
                                                 } else {
-                                                    Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.canFly.disabled", EntityArgument.getPlayer(context, "player").getName().getString());
+                                                    Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.player.canFly.disabled", EntityArgument.getPlayer(context, "player").getName().getString());
                                                 }
                                                 return 1;
                                             } else if (context.getSource().getPlayerOrException().getAbilities().mayfly == option) {
                                                 if (option) {
-                                                    Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.canFly.enabledA", EntityArgument.getPlayer(context, "player").getName().getString());
+                                                    Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.player.canFly.enabledA", EntityArgument.getPlayer(context, "player").getName().getString());
                                                 } else {
-                                                    Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.canFly.disabledA", EntityArgument.getPlayer(context, "player").getName().getString());
+                                                    Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.player.canFly.disabledA", EntityArgument.getPlayer(context, "player").getName().getString());
                                                 }
                                                 return 0;
                                             } else {
@@ -48,16 +48,16 @@ public class Player {
                                                 context.getSource().getPlayerOrException().getAbilities().mayBuild = option;
                                                 context.getSource().getPlayerOrException().onUpdateAbilities();
                                                 if (option) {
-                                                    Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.canPlaceBlock.enabled", EntityArgument.getPlayer(context, "player").getName().getString());
+                                                    Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.player.canPlaceBlock.enabled", EntityArgument.getPlayer(context, "player").getName().getString());
                                                 } else {
-                                                    Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.canPlaceBlock.disabled", EntityArgument.getPlayer(context, "player").getName().getString());
+                                                    Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.player.canPlaceBlock.disabled", EntityArgument.getPlayer(context, "player").getName().getString());
                                                 }
                                                 return 1;
                                             } else if (context.getSource().getPlayerOrException().getAbilities().mayBuild == option) {
                                                 if (option) {
-                                                    Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.canPlaceBlock.enabledA", EntityArgument.getPlayer(context, "player").getName().getString());
+                                                    Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.player.canPlaceBlock.enabledA", EntityArgument.getPlayer(context, "player").getName().getString());
                                                 } else {
-                                                    Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.canPlaceBlock.disabledA", EntityArgument.getPlayer(context, "player").getName().getString());
+                                                    Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.player.canPlaceBlock.disabledA", EntityArgument.getPlayer(context, "player").getName().getString());
                                                 }
                                                 return 0;
                                             } else {
@@ -67,19 +67,19 @@ public class Player {
                                 .then(Commands.literal("get")
                                         .then(Commands.literal("canFly").executes(context -> {
                                             if (context.getSource().getPlayerOrException().getAbilities().mayfly) {
-                                                Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.canFly.enabled", EntityArgument.getPlayer(context, "player").getName().getString());
+                                                Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.player.canFly.enabled", EntityArgument.getPlayer(context, "player").getName().getString());
                                                 return 1;
                                             } else {
-                                                Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.canFly.disabled", EntityArgument.getPlayer(context, "player").getName().getString());
+                                                Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.player.canFly.disabled", EntityArgument.getPlayer(context, "player").getName().getString());
                                                 return 0;
                                             }
                                         }))
                                         .then(Commands.literal("canPlaceBlock").executes(context -> {
                                             if (context.getSource().getPlayerOrException().getAbilities().mayBuild) {
-                                                Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.canPlaceBlock.enabled", EntityArgument.getPlayer(context, "player").getName().getString());
+                                                Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.player.canPlaceBlock.enabled", EntityArgument.getPlayer(context, "player").getName().getString());
                                                 return 1;
                                             } else {
-                                                Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.canPlaceBlock.disabled", EntityArgument.getPlayer(context, "player").getName().getString());
+                                                Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.player.canPlaceBlock.disabled", EntityArgument.getPlayer(context, "player").getName().getString());
                                                 return 0;
                                             }
                                         })))
@@ -89,9 +89,18 @@ public class Player {
                                             ServerPlayer player = EntityArgument.getPlayer(context, "player");
                                             BlockPos pos = new BlockPos(BlockPosArgument.getLoadedBlockPos(context, "pos"));
                                             level.getBlockState(pos).use(level, player, InteractionHand.MAIN_HAND, new BlockHitResult(new Vec3(pos.getX(), pos.getY(), pos.getZ()), Direction.UP, pos, false));
-                                            Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.rightClick.success", pos.toShortString(), player.getName().getString());
+                                            Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.player.rightClick.success", pos.toShortString(), player.getName().getString());
                                             return 1;
                                         })))
+                                .then(Commands.literal("currentXp")
+                                        .executes(context -> {
+                                            ServerPlayer player = EntityArgument.getPlayer(context, "player");
+                                            Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.player.currentXp",
+                                                    EntityArgument.getPlayer(context, "player").getName().getString(),
+                                                    String.valueOf(player.totalExperience));
+                                            return player.totalExperience;
+                                        }))
+
                         ));
     }
 
