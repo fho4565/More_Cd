@@ -24,7 +24,7 @@ public class HelpScreen extends AbstractContainerScreen<HelpMenu> {
     Button left;
     Button right;
     static int index = 1;
-    static final int maxPage = 13;
+    static final int maxPage = 14;
 
     public HelpScreen(HelpMenu container, Inventory inventory, Component text) {
         super(container, inventory, text);

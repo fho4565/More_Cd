@@ -2,140 +2,715 @@ package com.fho4565.commands;
 
 import com.fho4565.main.Utils;
 import com.mojang.brigadier.arguments.DoubleArgumentType;
-import com.mojang.brigadier.builder.ArgumentBuilder;
-import com.mojang.brigadier.context.CommandContext;
-import com.mojang.brigadier.exceptions.CommandSyntaxException;
-import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
 import net.minecraft.commands.arguments.NbtPathArgument;
+import net.minecraft.commands.arguments.ObjectiveArgument;
 import net.minecraft.commands.arguments.ResourceLocationArgument;
+import net.minecraft.commands.arguments.ScoreHolderArgument;
 import net.minecraft.nbt.DoubleTag;
 
-import java.util.function.BiFunction;
 
 public class MathCommand {
     public static void register() {
         CommandRegister.dispatcher.register(
                 Commands.literal("math").requires(s -> s.hasPermission(2))
-                        .then(buildMathCommand("log", MathCommand::log10))
-                        .then(buildMathCommand("loge", MathCommand::loge))
-                        .then(buildMathCommand("tanh", MathCommand::tanh))
-                        .then(buildMathCommand("cosh", MathCommand::cosh))
-                        .then(buildMathCommand("sinh", MathCommand::sinh))
-                        .then(buildMathCommand("atan", MathCommand::atan))
-                        .then(buildMathCommand("asin", MathCommand::asin))
-                        .then(buildMathCommand("acos", MathCommand::acos))
-                        .then(buildMathCommand("tan", MathCommand::tan))
-                        .then(buildMathCommand("cos", MathCommand::cos))
-                        .then(buildMathCommand("sin", MathCommand::sin))
-                        .then(buildMathCommand("max", MathCommand::max))
-                        .then(buildMathCommand("min", MathCommand::min))
-                        .then(buildMathCommand("abs", MathCommand::abs))
-                        .then(buildMathCommand("pow", MathCommand::pow))
-                        .then(buildMathCommand("sqrt", MathCommand::sqrt)
+                        .then(Commands.literal("log")
+                                .then(Commands.literal("score")
+                                        .then(Commands.argument("baseHolder", ScoreHolderArgument.scoreHolder())
+                                                .then(Commands.argument("baseScore", ObjectiveArgument.objective()).executes(context -> {
+                                                            double result = java.lang.Math.log10(Utils.getScore(context.getSource().getServer(), ScoreHolderArgument.getName(context, "baseHolder"), ObjectiveArgument.getObjective(context, "baseScore")));
+                                                            Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.math.success", String.valueOf(result));
+                                                            return (int) result;
+                                                        })
+                                                        .then(Commands.argument("targetTarget", ResourceLocationArgument.id())
+                                                                .then(Commands.argument("targetPath", NbtPathArgument.nbtPath()).executes(context -> {
+                                                                    double result = java.lang.Math.log10(Utils.getScore(context.getSource().getServer(), ScoreHolderArgument.getName(context, "baseHolder"), ObjectiveArgument.getObjective(context, "baseScore")));
+                                                                    Utils.setData(context, "targetTarget", "targetPath", DoubleTag.valueOf(result));
+                                                                    Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.math.success", String.valueOf(result));
+                                                                    return (int) result;
+                                                                }))))))
+                                .then(Commands.literal("storage")
+                                        .then(Commands.argument("sourceTarget", ResourceLocationArgument.id())
+                                                .then(Commands.argument("sourcePath", NbtPathArgument.nbtPath()).executes(context -> {
+                                                            double result = java.lang.Math.log10(Double.parseDouble(Utils.getData(context, "sourceTarget", "sourcePath").getAsString()));
+                                                            Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.math.success", String.valueOf(result));
+                                                            return (int) result;
+                                                        })
+                                                        .then(Commands.argument("targetTarget", ResourceLocationArgument.id())
+                                                                .then(Commands.argument("targetPath", NbtPathArgument.nbtPath()).executes(context -> {
+                                                                    double result = java.lang.Math.log10(Double.parseDouble(Utils.getData(context, "sourceTarget", "sourcePath").getAsString()));
+                                                                    Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.math.success", String.valueOf(result));
+                                                                    Utils.setData(context, "targetTarget", "targetPath", DoubleTag.valueOf(result));
+                                                                    return (int) result;
+                                                                }))))))
+                                .then(Commands.literal("num")
+                                        .then(Commands.argument("baseNum", DoubleArgumentType.doubleArg()).executes(context -> {
+                                                    double result = java.lang.Math.log10(DoubleArgumentType.getDouble(context, "baseNum"));
+                                                    Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.math.success", String.valueOf(result));
+                                                    return (int) result;
+                                                })
+                                                .then(Commands.argument("targetTarget", ResourceLocationArgument.id())
+                                                        .then(Commands.argument("targetPath", NbtPathArgument.nbtPath()).executes(context -> {
+                                                            double result = java.lang.Math.log10(DoubleArgumentType.getDouble(context, "baseNum"));
+                                                            Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.math.success", String.valueOf(result));
+                                                            Utils.setData(context, "targetTarget", "targetPath", DoubleTag.valueOf(result));
+                                                            return (int) result;
+                                                        }))))))
+                        .then(Commands.literal("loge")
+                                .then(Commands.literal("score")
+                                        .then(Commands.argument("baseHolder", ScoreHolderArgument.scoreHolder())
+                                                .then(Commands.argument("baseScore", ObjectiveArgument.objective()).executes(context -> {
+                                                            double result = java.lang.Math.log(Utils.getScore(context.getSource().getServer(), ScoreHolderArgument.getName(context, "baseHolder"), ObjectiveArgument.getObjective(context, "baseScore")));
+                                                            Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.math.success", String.valueOf(result));
+                                                            return (int) result;
+                                                        })
+                                                        .then(Commands.argument("targetTarget", ResourceLocationArgument.id())
+                                                                .then(Commands.argument("targetPath", NbtPathArgument.nbtPath()).executes(context -> {
+                                                                    double result = java.lang.Math.log(Utils.getScore(context.getSource().getServer(), ScoreHolderArgument.getName(context, "baseHolder"), ObjectiveArgument.getObjective(context, "baseScore")));
+                                                                    Utils.setData(context, "targetTarget", "targetPath", DoubleTag.valueOf(result));
+                                                                    Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.math.success", String.valueOf(result));
+                                                                    return (int) result;
+                                                                }))))))
+                                .then(Commands.literal("storage")
+                                        .then(Commands.argument("sourceTarget", ResourceLocationArgument.id())
+                                                .then(Commands.argument("sourcePath", NbtPathArgument.nbtPath()).executes(context -> {
+                                                            double result = java.lang.Math.log(Double.parseDouble(Utils.getData(context, "sourceTarget", "sourcePath").getAsString()));
+                                                            Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.math.success", String.valueOf(result));
+                                                            return (int) result;
+                                                        })
+                                                        .then(Commands.argument("targetTarget", ResourceLocationArgument.id())
+                                                                .then(Commands.argument("targetPath", NbtPathArgument.nbtPath()).executes(context -> {
+                                                                    double result = java.lang.Math.log(Double.parseDouble(Utils.getData(context, "sourceTarget", "sourcePath").getAsString()));
+                                                                    Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.math.success", String.valueOf(result));
+                                                                    Utils.setData(context, "targetTarget", "targetPath", DoubleTag.valueOf(result));
+                                                                    return (int) result;
+                                                                }))))))
+                                .then(Commands.literal("num")
+                                        .then(Commands.argument("baseNum", DoubleArgumentType.doubleArg()).executes(context -> {
+                                                    double result = java.lang.Math.log(DoubleArgumentType.getDouble(context, "baseNum"));
+                                                    Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.math.success", String.valueOf(result));
+                                                    return (int) result;
+                                                })
+                                                .then(Commands.argument("targetTarget", ResourceLocationArgument.id())
+                                                        .then(Commands.argument("targetPath", NbtPathArgument.nbtPath()).executes(context -> {
+                                                            double result = java.lang.Math.log(DoubleArgumentType.getDouble(context, "baseNum"));
+                                                            Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.math.success", String.valueOf(result));
+                                                            Utils.setData(context, "targetTarget", "targetPath", DoubleTag.valueOf(result));
+                                                            return (int) result;
+                                                        }))))))
+                        .then(Commands.literal("tanh")
+                                .then(Commands.literal("score")
+                                        .then(Commands.argument("baseHolder", ScoreHolderArgument.scoreHolder())
+                                                .then(Commands.argument("baseScore", ObjectiveArgument.objective()).executes(context -> {
+                                                            double result = java.lang.Math.tanh(Utils.getScore(context.getSource().getServer(), ScoreHolderArgument.getName(context, "baseHolder"), ObjectiveArgument.getObjective(context, "baseScore")));
+                                                            Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.math.success", String.valueOf(result));
+                                                            return (int) result;
+                                                        })
+                                                        .then(Commands.argument("targetTarget", ResourceLocationArgument.id())
+                                                                .then(Commands.argument("targetPath", NbtPathArgument.nbtPath()).executes(context -> {
+                                                                    double result = java.lang.Math.tanh(Utils.getScore(context.getSource().getServer(), ScoreHolderArgument.getName(context, "baseHolder"), ObjectiveArgument.getObjective(context, "baseScore")));
+                                                                    Utils.setData(context, "targetTarget", "targetPath", DoubleTag.valueOf(result));
+                                                                    Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.math.success", String.valueOf(result));
+                                                                    return (int) result;
+                                                                }))))))
+                                .then(Commands.literal("storage")
+                                        .then(Commands.argument("sourceTarget", ResourceLocationArgument.id())
+                                                .then(Commands.argument("sourcePath", NbtPathArgument.nbtPath()).executes(context -> {
+                                                            double result = java.lang.Math.tanh(Double.parseDouble(Utils.getData(context, "sourceTarget", "sourcePath").getAsString()));
+                                                            Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.math.success", String.valueOf(result));
+                                                            return (int) result;
+                                                        })
+                                                        .then(Commands.argument("targetTarget", ResourceLocationArgument.id())
+                                                                .then(Commands.argument("targetPath", NbtPathArgument.nbtPath()).executes(context -> {
+                                                                    double result = java.lang.Math.tanh(Double.parseDouble(Utils.getData(context, "sourceTarget", "sourcePath").getAsString()));
+                                                                    Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.math.success", String.valueOf(result));
+                                                                    Utils.setData(context, "targetTarget", "targetPath", DoubleTag.valueOf(result));
+                                                                    return (int) result;
+                                                                }))))))
+                                .then(Commands.literal("num")
+                                        .then(Commands.argument("baseNum", DoubleArgumentType.doubleArg()).executes(context -> {
+                                                    double result = java.lang.Math.tanh(DoubleArgumentType.getDouble(context, "baseNum"));
+                                                    Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.math.success", String.valueOf(result));
+                                                    return (int) result;
+                                                })
+                                                .then(Commands.argument("targetTarget", ResourceLocationArgument.id())
+                                                        .then(Commands.argument("targetPath", NbtPathArgument.nbtPath()).executes(context -> {
+                                                            double result = java.lang.Math.tanh(DoubleArgumentType.getDouble(context, "baseNum"));
+                                                            Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.math.success", String.valueOf(result));
+                                                            Utils.setData(context, "targetTarget", "targetPath", DoubleTag.valueOf(result));
+                                                            return (int) result;
+                                                        }))))))
+                        .then(Commands.literal("cosh")
+                                .then(Commands.literal("score")
+                                        .then(Commands.argument("baseHolder", ScoreHolderArgument.scoreHolder())
+                                                .then(Commands.argument("baseScore", ObjectiveArgument.objective()).executes(context -> {
+                                                            double result = java.lang.Math.cosh(Utils.getScore(context.getSource().getServer(), ScoreHolderArgument.getName(context, "baseHolder"), ObjectiveArgument.getObjective(context, "baseScore")));
+                                                            Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.math.success", String.valueOf(result));
+                                                            return (int) result;
+                                                        })
+                                                        .then(Commands.argument("targetTarget", ResourceLocationArgument.id())
+                                                                .then(Commands.argument("targetPath", NbtPathArgument.nbtPath()).executes(context -> {
+                                                                    double result = java.lang.Math.cosh(Utils.getScore(context.getSource().getServer(), ScoreHolderArgument.getName(context, "baseHolder"), ObjectiveArgument.getObjective(context, "baseScore")));
+                                                                    Utils.setData(context, "targetTarget", "targetPath", DoubleTag.valueOf(result));
+                                                                    Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.math.success", String.valueOf(result));
+                                                                    return (int) result;
+                                                                }))))))
+                                .then(Commands.literal("storage")
+                                        .then(Commands.argument("sourceTarget", ResourceLocationArgument.id())
+                                                .then(Commands.argument("sourcePath", NbtPathArgument.nbtPath()).executes(context -> {
+                                                            double result = java.lang.Math.cosh(Double.parseDouble(Utils.getData(context, "sourceTarget", "sourcePath").getAsString()));
+                                                            Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.math.success", String.valueOf(result));
+                                                            return (int) result;
+                                                        })
+                                                        .then(Commands.argument("targetTarget", ResourceLocationArgument.id())
+                                                                .then(Commands.argument("targetPath", NbtPathArgument.nbtPath()).executes(context -> {
+                                                                    double result = java.lang.Math.cosh(Double.parseDouble(Utils.getData(context, "sourceTarget", "sourcePath").getAsString()));
+                                                                    Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.math.success", String.valueOf(result));
+                                                                    Utils.setData(context, "targetTarget", "targetPath", DoubleTag.valueOf(result));
+                                                                    return (int) result;
+                                                                }))))))
+                                .then(Commands.literal("num")
+                                        .then(Commands.argument("baseNum", DoubleArgumentType.doubleArg()).executes(context -> {
+                                                    double result = java.lang.Math.cosh(DoubleArgumentType.getDouble(context, "baseNum"));
+                                                    Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.math.success", String.valueOf(result));
+                                                    return (int) result;
+                                                })
+                                                .then(Commands.argument("targetTarget", ResourceLocationArgument.id())
+                                                        .then(Commands.argument("targetPath", NbtPathArgument.nbtPath()).executes(context -> {
+                                                            double result = java.lang.Math.cosh(DoubleArgumentType.getDouble(context, "baseNum"));
+                                                            Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.math.success", String.valueOf(result));
+                                                            Utils.setData(context, "targetTarget", "targetPath", DoubleTag.valueOf(result));
+                                                            return (int) result;
+                                                        }))))))
+                        .then(Commands.literal("sinh")
+                                .then(Commands.literal("score")
+                                        .then(Commands.argument("baseHolder", ScoreHolderArgument.scoreHolder())
+                                                .then(Commands.argument("baseScore", ObjectiveArgument.objective()).executes(context -> {
+                                                            double result = java.lang.Math.sinh(Utils.getScore(context.getSource().getServer(), ScoreHolderArgument.getName(context, "baseHolder"), ObjectiveArgument.getObjective(context, "baseScore")));
+                                                            Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.math.success", String.valueOf(result));
+                                                            return (int) result;
+                                                        })
+                                                        .then(Commands.argument("targetTarget", ResourceLocationArgument.id())
+                                                                .then(Commands.argument("targetPath", NbtPathArgument.nbtPath()).executes(context -> {
+                                                                    double result = java.lang.Math.sinh(Utils.getScore(context.getSource().getServer(), ScoreHolderArgument.getName(context, "baseHolder"), ObjectiveArgument.getObjective(context, "baseScore")));
+                                                                    Utils.setData(context, "targetTarget", "targetPath", DoubleTag.valueOf(result));
+                                                                    Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.math.success", String.valueOf(result));
+                                                                    return (int) result;
+                                                                }))))))
+                                .then(Commands.literal("storage")
+                                        .then(Commands.argument("sourceTarget", ResourceLocationArgument.id())
+                                                .then(Commands.argument("sourcePath", NbtPathArgument.nbtPath()).executes(context -> {
+                                                            double result = java.lang.Math.sinh(Double.parseDouble(Utils.getData(context, "sourceTarget", "sourcePath").getAsString()));
+                                                            Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.math.success", String.valueOf(result));
+                                                            return (int) result;
+                                                        })
+                                                        .then(Commands.argument("targetTarget", ResourceLocationArgument.id())
+                                                                .then(Commands.argument("targetPath", NbtPathArgument.nbtPath()).executes(context -> {
+                                                                    double result = java.lang.Math.sinh(Double.parseDouble(Utils.getData(context, "sourceTarget", "sourcePath").getAsString()));
+                                                                    Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.math.success", String.valueOf(result));
+                                                                    Utils.setData(context, "targetTarget", "targetPath", DoubleTag.valueOf(result));
+                                                                    return (int) result;
+                                                                }))))))
+                                .then(Commands.literal("num")
+                                        .then(Commands.argument("baseNum", DoubleArgumentType.doubleArg()).executes(context -> {
+                                                    double result = java.lang.Math.sinh(DoubleArgumentType.getDouble(context, "baseNum"));
+                                                    Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.math.success", String.valueOf(result));
+                                                    return (int) result;
+                                                })
+                                                .then(Commands.argument("targetTarget", ResourceLocationArgument.id())
+                                                        .then(Commands.argument("targetPath", NbtPathArgument.nbtPath()).executes(context -> {
+                                                            double result = java.lang.Math.sinh(DoubleArgumentType.getDouble(context, "baseNum"));
+                                                            Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.math.success", String.valueOf(result));
+                                                            Utils.setData(context, "targetTarget", "targetPath", DoubleTag.valueOf(result));
+                                                            return (int) result;
+                                                        }))))))
+                        .then(Commands.literal("atan")
+                                .then(Commands.literal("score")
+                                        .then(Commands.argument("baseHolder", ScoreHolderArgument.scoreHolder())
+                                                .then(Commands.argument("baseScore", ObjectiveArgument.objective()).executes(context -> {
+                                                            double result = java.lang.Math.atan(Utils.getScore(context.getSource().getServer(), ScoreHolderArgument.getName(context, "baseHolder"), ObjectiveArgument.getObjective(context, "baseScore")));
+                                                            Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.math.success", String.valueOf(result));
+                                                            return (int) result;
+                                                        })
+                                                        .then(Commands.argument("targetTarget", ResourceLocationArgument.id())
+                                                                .then(Commands.argument("targetPath", NbtPathArgument.nbtPath()).executes(context -> {
+                                                                    double result = java.lang.Math.atan(Utils.getScore(context.getSource().getServer(), ScoreHolderArgument.getName(context, "baseHolder"), ObjectiveArgument.getObjective(context, "baseScore")));
+                                                                    Utils.setData(context, "targetTarget", "targetPath", DoubleTag.valueOf(result));
+                                                                    Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.math.success", String.valueOf(result));
+                                                                    return (int) result;
+                                                                }))))))
+                                .then(Commands.literal("storage")
+                                        .then(Commands.argument("sourceTarget", ResourceLocationArgument.id())
+                                                .then(Commands.argument("sourcePath", NbtPathArgument.nbtPath()).executes(context -> {
+                                                            double result = java.lang.Math.atan(Double.parseDouble(Utils.getData(context, "sourceTarget", "sourcePath").getAsString()));
+                                                            Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.math.success", String.valueOf(result));
+                                                            return (int) result;
+                                                        })
+                                                        .then(Commands.argument("targetTarget", ResourceLocationArgument.id())
+                                                                .then(Commands.argument("targetPath", NbtPathArgument.nbtPath()).executes(context -> {
+                                                                    double result = java.lang.Math.atan(Double.parseDouble(Utils.getData(context, "sourceTarget", "sourcePath").getAsString()));
+                                                                    Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.math.success", String.valueOf(result));
+                                                                    Utils.setData(context, "targetTarget", "targetPath", DoubleTag.valueOf(result));
+                                                                    return (int) result;
+                                                                }))))))
+                                .then(Commands.literal("num")
+                                        .then(Commands.argument("baseNum", DoubleArgumentType.doubleArg()).executes(context -> {
+                                                    double result = java.lang.Math.atan(DoubleArgumentType.getDouble(context, "baseNum"));
+                                                    Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.math.success", String.valueOf(result));
+                                                    return (int) result;
+                                                })
+                                                .then(Commands.argument("targetTarget", ResourceLocationArgument.id())
+                                                        .then(Commands.argument("targetPath", NbtPathArgument.nbtPath()).executes(context -> {
+                                                            double result = java.lang.Math.atan(DoubleArgumentType.getDouble(context, "baseNum"));
+                                                            Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.math.success", String.valueOf(result));
+                                                            Utils.setData(context, "targetTarget", "targetPath", DoubleTag.valueOf(result));
+                                                            return (int) result;
+                                                        }))))))
+                        .then(Commands.literal("acos")
+                                .then(Commands.literal("score")
+                                        .then(Commands.argument("baseHolder", ScoreHolderArgument.scoreHolder())
+                                                .then(Commands.argument("baseScore", ObjectiveArgument.objective()).executes(context -> {
+                                                            double result = java.lang.Math.acos(Utils.getScore(context.getSource().getServer(), ScoreHolderArgument.getName(context, "baseHolder"), ObjectiveArgument.getObjective(context, "baseScore")));
+                                                            Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.math.success", String.valueOf(result));
+                                                            return (int) result;
+                                                        })
+                                                        .then(Commands.argument("targetTarget", ResourceLocationArgument.id())
+                                                                .then(Commands.argument("targetPath", NbtPathArgument.nbtPath()).executes(context -> {
+                                                                    double result = java.lang.Math.acos(Utils.getScore(context.getSource().getServer(), ScoreHolderArgument.getName(context, "baseHolder"), ObjectiveArgument.getObjective(context, "baseScore")));
+                                                                    Utils.setData(context, "targetTarget", "targetPath", DoubleTag.valueOf(result));
+                                                                    Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.math.success", String.valueOf(result));
+                                                                    return (int) result;
+                                                                }))))))
+                                .then(Commands.literal("storage")
+                                        .then(Commands.argument("sourceTarget", ResourceLocationArgument.id())
+                                                .then(Commands.argument("sourcePath", NbtPathArgument.nbtPath()).executes(context -> {
+                                                            double result = java.lang.Math.acos(Double.parseDouble(Utils.getData(context, "sourceTarget", "sourcePath").getAsString()));
+                                                            Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.math.success", String.valueOf(result));
+                                                            return (int) result;
+                                                        })
+                                                        .then(Commands.argument("targetTarget", ResourceLocationArgument.id())
+                                                                .then(Commands.argument("targetPath", NbtPathArgument.nbtPath()).executes(context -> {
+                                                                    double result = java.lang.Math.acos(Double.parseDouble(Utils.getData(context, "sourceTarget", "sourcePath").getAsString()));
+                                                                    Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.math.success", String.valueOf(result));
+                                                                    Utils.setData(context, "targetTarget", "targetPath", DoubleTag.valueOf(result));
+                                                                    return (int) result;
+                                                                }))))))
+                                .then(Commands.literal("num")
+                                        .then(Commands.argument("baseNum", DoubleArgumentType.doubleArg()).executes(context -> {
+                                                    double result = java.lang.Math.acos(DoubleArgumentType.getDouble(context, "baseNum"));
+                                                    Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.math.success", String.valueOf(result));
+                                                    return (int) result;
+                                                })
+                                                .then(Commands.argument("targetTarget", ResourceLocationArgument.id())
+                                                        .then(Commands.argument("targetPath", NbtPathArgument.nbtPath()).executes(context -> {
+                                                            double result = java.lang.Math.acos(DoubleArgumentType.getDouble(context, "baseNum"));
+                                                            Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.math.success", String.valueOf(result));
+                                                            Utils.setData(context, "targetTarget", "targetPath", DoubleTag.valueOf(result));
+                                                            return (int) result;
+                                                        }))))))
+                        .then(Commands.literal("asin")
+                                .then(Commands.literal("score")
+                                        .then(Commands.argument("baseHolder", ScoreHolderArgument.scoreHolder())
+                                                .then(Commands.argument("baseScore", ObjectiveArgument.objective()).executes(context -> {
+                                                            double result = java.lang.Math.asin(DoubleArgumentType.getDouble(context, "baseNum"));
+                                                            Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.math.success", String.valueOf(result));
+                                                            return (int) result;
+                                                        })
+                                                        .then(Commands.argument("targetTarget", ResourceLocationArgument.id())
+                                                                .then(Commands.argument("targetPath", NbtPathArgument.nbtPath()).executes(context -> {
+                                                                    double result = java.lang.Math.asin(DoubleArgumentType.getDouble(context, "baseNum"));
+                                                                    Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.math.success", String.valueOf(result));
+                                                                    Utils.setData(context, "targetTarget", "targetPath", DoubleTag.valueOf(result));
+                                                                    return (int) result;
+                                                                }))))))
+                                .then(Commands.literal("storage")
+                                        .then(Commands.argument("sourceTarget", ResourceLocationArgument.id())
+                                                .then(Commands.argument("sourcePath", NbtPathArgument.nbtPath()).executes(context -> {
+                                                            double result = java.lang.Math.asin(Double.parseDouble(Utils.getData(context, "sourceTarget", "sourcePath").getAsString()));
+                                                            Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.math.success", String.valueOf(result));
+                                                            return (int) result;
+                                                        })
+                                                        .then(Commands.argument("targetTarget", ResourceLocationArgument.id())
+                                                                .then(Commands.argument("targetPath", NbtPathArgument.nbtPath()).executes(context -> {
+                                                                    double result = java.lang.Math.asin(Double.parseDouble(Utils.getData(context, "sourceTarget", "sourcePath").getAsString()));
+                                                                    Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.math.success", String.valueOf(result));
+                                                                    Utils.setData(context, "targetTarget", "targetPath", DoubleTag.valueOf(result));
+                                                                    return (int) result;
+                                                                }))))))
+                                .then(Commands.literal("num")
+                                        .then(Commands.argument("baseNum", DoubleArgumentType.doubleArg()).executes(context -> {
+                                                    double result = java.lang.Math.asin(DoubleArgumentType.getDouble(context, "baseNum"));
+                                                    Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.math.success", String.valueOf(result));
+                                                    return (int) result;
+                                                })
+                                                .then(Commands.argument("targetTarget", ResourceLocationArgument.id())
+                                                        .then(Commands.argument("targetPath", NbtPathArgument.nbtPath()).executes(context -> {
+                                                            double result = java.lang.Math.asin(DoubleArgumentType.getDouble(context, "baseNum"));
+                                                            Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.math.success", String.valueOf(result));
+                                                            Utils.setData(context, "targetTarget", "targetPath", DoubleTag.valueOf(result));
+                                                            return (int) result;
+                                                        }))))))
+                        .then(Commands.literal("tan")
+                                .then(Commands.literal("score")
+                                        .then(Commands.argument("baseHolder", ScoreHolderArgument.scoreHolder())
+                                                .then(Commands.argument("baseScore", ObjectiveArgument.objective()).executes(context -> {
+                                                            double result = java.lang.Math.tan(Utils.getScore(context.getSource().getServer(), ScoreHolderArgument.getName(context, "baseHolder"), ObjectiveArgument.getObjective(context, "baseScore")));
+                                                            Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.math.success", String.valueOf(result));
+                                                            return (int) result;
+                                                        })
+                                                        .then(Commands.argument("targetTarget", ResourceLocationArgument.id())
+                                                                .then(Commands.argument("targetPath", NbtPathArgument.nbtPath()).executes(context -> {
+                                                                    double result = java.lang.Math.tan(Utils.getScore(context.getSource().getServer(), ScoreHolderArgument.getName(context, "baseHolder"), ObjectiveArgument.getObjective(context, "baseScore")));
+                                                                    Utils.setData(context, "targetTarget", "targetPath", DoubleTag.valueOf(result));
+                                                                    Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.math.success", String.valueOf(result));
+                                                                    return (int) result;
+                                                                }))))))
+                                .then(Commands.literal("storage")
+                                        .then(Commands.argument("sourceTarget", ResourceLocationArgument.id())
+                                                .then(Commands.argument("sourcePath", NbtPathArgument.nbtPath()).executes(context -> {
+                                                            double result = java.lang.Math.tan(Double.parseDouble(Utils.getData(context, "sourceTarget", "sourcePath").getAsString()));
+                                                            Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.math.success", String.valueOf(result));
+                                                            return (int) result;
+                                                        })
+                                                        .then(Commands.argument("targetTarget", ResourceLocationArgument.id())
+                                                                .then(Commands.argument("targetPath", NbtPathArgument.nbtPath()).executes(context -> {
+                                                                    double result = java.lang.Math.tan(Double.parseDouble(Utils.getData(context, "sourceTarget", "sourcePath").getAsString()));
+                                                                    Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.math.success", String.valueOf(result));
+                                                                    Utils.setData(context, "targetTarget", "targetPath", DoubleTag.valueOf(result));
+                                                                    return (int) result;
+                                                                }))))))
+                                .then(Commands.literal("num")
+                                        .then(Commands.argument("baseNum", DoubleArgumentType.doubleArg()).executes(context -> {
+                                                    double result = java.lang.Math.tan(DoubleArgumentType.getDouble(context, "baseNum"));
+                                                    Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.math.success", String.valueOf(result));
+                                                    return (int) result;
+                                                })
+                                                .then(Commands.argument("targetTarget", ResourceLocationArgument.id())
+                                                        .then(Commands.argument("targetPath", NbtPathArgument.nbtPath()).executes(context -> {
+                                                            double result = java.lang.Math.tan(DoubleArgumentType.getDouble(context, "baseNum"));
+                                                            Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.math.success", String.valueOf(result));
+                                                            Utils.setData(context, "targetTarget", "targetPath", DoubleTag.valueOf(result));
+                                                            return (int) result;
+                                                        }))))))
+                        .then(Commands.literal("cos")
+                                .then(Commands.literal("score")
+                                        .then(Commands.argument("baseHolder", ScoreHolderArgument.scoreHolder())
+                                                .then(Commands.argument("baseScore", ObjectiveArgument.objective()).executes(context -> {
+                                                            double result = java.lang.Math.cos(Utils.getScore(context.getSource().getServer(), ScoreHolderArgument.getName(context, "baseHolder"), ObjectiveArgument.getObjective(context, "baseScore")));
+                                                            Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.math.success", String.valueOf(result));
+                                                            return (int) result;
+                                                        })
+                                                        .then(Commands.argument("targetTarget", ResourceLocationArgument.id())
+                                                                .then(Commands.argument("targetPath", NbtPathArgument.nbtPath()).executes(context -> {
+                                                                    double result = java.lang.Math.cos(Utils.getScore(context.getSource().getServer(), ScoreHolderArgument.getName(context, "baseHolder"), ObjectiveArgument.getObjective(context, "baseScore")));
+                                                                    Utils.setData(context, "targetTarget", "targetPath", DoubleTag.valueOf(result));
+                                                                    Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.math.success", String.valueOf(result));
+                                                                    return (int) result;
+                                                                }))))))
+                                .then(Commands.literal("storage")
+                                        .then(Commands.argument("sourceTarget", ResourceLocationArgument.id())
+                                                .then(Commands.argument("sourcePath", NbtPathArgument.nbtPath()).executes(context -> {
+                                                            double result = java.lang.Math.cos(Double.parseDouble(Utils.getData(context, "sourceTarget", "sourcePath").getAsString()));
+                                                            Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.math.success", String.valueOf(result));
+                                                            return (int) result;
+                                                        })
+                                                        .then(Commands.argument("targetTarget", ResourceLocationArgument.id())
+                                                                .then(Commands.argument("targetPath", NbtPathArgument.nbtPath()).executes(context -> {
+                                                                    double result = java.lang.Math.cos(Double.parseDouble(Utils.getData(context, "sourceTarget", "sourcePath").getAsString()));
+                                                                    Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.math.success", String.valueOf(result));
+                                                                    Utils.setData(context, "targetTarget", "targetPath", DoubleTag.valueOf(result));
+                                                                    return (int) result;
+                                                                }))))))
+                                .then(Commands.literal("num")
+                                        .then(Commands.argument("baseNum", DoubleArgumentType.doubleArg()).executes(context -> {
+                                                    double result = java.lang.Math.cos(DoubleArgumentType.getDouble(context, "baseNum"));
+                                                    Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.math.success", String.valueOf(result));
+                                                    return (int) result;
+                                                })
+                                                .then(Commands.argument("targetTarget", ResourceLocationArgument.id())
+                                                        .then(Commands.argument("targetPath", NbtPathArgument.nbtPath()).executes(context -> {
+                                                            double result = java.lang.Math.cos(DoubleArgumentType.getDouble(context, "baseNum"));
+                                                            Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.math.success", String.valueOf(result));
+                                                            Utils.setData(context, "targetTarget", "targetPath", DoubleTag.valueOf(result));
+                                                            return (int) result;
+                                                        }))))))
+                        .then(Commands.literal("sin")
+                                .then(Commands.literal("score")
+                                        .then(Commands.argument("baseHolder", ScoreHolderArgument.scoreHolder())
+                                                .then(Commands.argument("baseScore", ObjectiveArgument.objective()).executes(context -> {
+                                                            double result = java.lang.Math.sin(Utils.getScore(context.getSource().getServer(), ScoreHolderArgument.getName(context, "baseHolder"), ObjectiveArgument.getObjective(context, "baseScore")));
+                                                            Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.math.success", String.valueOf(result));
+                                                            return (int) result;
+                                                        })
+                                                        .then(Commands.argument("targetTarget", ResourceLocationArgument.id())
+                                                                .then(Commands.argument("targetPath", NbtPathArgument.nbtPath()).executes(context -> {
+                                                                    double result = java.lang.Math.sin(Utils.getScore(context.getSource().getServer(), ScoreHolderArgument.getName(context, "baseHolder"), ObjectiveArgument.getObjective(context, "baseScore")));
+                                                                    Utils.setData(context, "targetTarget", "targetPath", DoubleTag.valueOf(result));
+                                                                    Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.math.success", String.valueOf(result));
+                                                                    return (int) result;
+                                                                }))))))
+                                .then(Commands.literal("storage")
+                                        .then(Commands.argument("sourceTarget", ResourceLocationArgument.id())
+                                                .then(Commands.argument("sourcePath", NbtPathArgument.nbtPath()).executes(context -> {
+                                                            double result = java.lang.Math.sin(Double.parseDouble(Utils.getData(context, "sourceTarget", "sourcePath").getAsString()));
+                                                            Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.math.success", String.valueOf(result));
+                                                            return (int) result;
+                                                        })
+                                                        .then(Commands.argument("targetTarget", ResourceLocationArgument.id())
+                                                                .then(Commands.argument("targetPath", NbtPathArgument.nbtPath()).executes(context -> {
+                                                                    double result = java.lang.Math.sin(Double.parseDouble(Utils.getData(context, "sourceTarget", "sourcePath").getAsString()));
+                                                                    Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.math.success", String.valueOf(result));
+                                                                    Utils.setData(context, "targetTarget", "targetPath", DoubleTag.valueOf(result));
+                                                                    return (int) result;
+                                                                }))))))
+                                .then(Commands.literal("num")
+                                        .then(Commands.argument("baseNum", DoubleArgumentType.doubleArg()).executes(context -> {
+                                                    double result = java.lang.Math.sin(DoubleArgumentType.getDouble(context, "baseNum"));
+                                                    Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.math.success", String.valueOf(result));
+                                                    return (int) result;
+                                                })
+                                                .then(Commands.argument("targetTarget", ResourceLocationArgument.id())
+                                                        .then(Commands.argument("targetPath", NbtPathArgument.nbtPath()).executes(context -> {
+                                                            double result = java.lang.Math.sin(DoubleArgumentType.getDouble(context, "baseNum"));
+                                                            Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.math.success", String.valueOf(result));
+                                                            Utils.setData(context, "targetTarget", "targetPath", DoubleTag.valueOf(result));
+                                                            return (int) result;
+                                                        }))))))
+                        .then(Commands.literal("max")
+                                .then(Commands.literal("storage")
+                                        .then(Commands.argument("sourceTargetA", ResourceLocationArgument.id())
+                                                .then(Commands.argument("sourcePathA", NbtPathArgument.nbtPath())
+                                                        .then(Commands.argument("sourceTargetB", ResourceLocationArgument.id())
+                                                                .then(Commands.argument("sourcePathB", NbtPathArgument.nbtPath()).executes(context -> {
+                                                                            double result = java.lang.Math.max(Double.parseDouble(Utils.getData(context, "sourceTargetA", "sourcePathA").getAsString()), Double.parseDouble(Utils.getData(context, "sourceTargetB", "sourcePathB").getAsString()));
+                                                                            Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.math.success", String.valueOf(result));
+                                                                            return (int) result;
+                                                                        })
+                                                                        .then(Commands.argument("targetTarget", ResourceLocationArgument.id())
+                                                                                .then(Commands.argument("targetPath", NbtPathArgument.nbtPath()).executes(context -> {
+                                                                                    double result = java.lang.Math.max(Double.parseDouble(Utils.getData(context, "sourceTargetA", "sourcePathA").getAsString()),
+                                                                                            Double.parseDouble(Utils.getData(context, "sourceTargetB", "sourcePathB").getAsString()));
+                                                                                    Utils.setData(context, "targetTarget", "targetPath", DoubleTag.valueOf(result));
+                                                                                    Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.math.success", String.valueOf(result));
+                                                                                    return (int) result;
+                                                                                }))))))))
+                                .then(Commands.literal("num")
+                                        .then(Commands.argument("a", DoubleArgumentType.doubleArg())
+                                                .then(Commands.argument("b", DoubleArgumentType.doubleArg()).executes(context -> {
+                                                            double result = java.lang.Math.max(DoubleArgumentType.getDouble(context, "a"), DoubleArgumentType.getDouble(context, "b"));
+                                                            Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.math.success", String.valueOf(result));
+                                                            return (int) result;
+                                                        })
+                                                        .then(Commands.argument("targetTarget", ResourceLocationArgument.id())
+                                                                .then(Commands.argument("targetPath", NbtPathArgument.nbtPath()).executes(context -> {
+                                                                    double result = java.lang.Math.max(DoubleArgumentType.getDouble(context, "a"), DoubleArgumentType.getDouble(context, "b"));
+                                                                    Utils.setData(context, "targetTarget", "targetPath", DoubleTag.valueOf(result));
+                                                                    Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.math.success", String.valueOf(result));
+                                                                    return (int) result;
+                                                                }))))))
+                                .then(Commands.literal("score")
+                                        .then(Commands.argument("aHolder", ScoreHolderArgument.scoreHolder())
+                                                .then(Commands.argument("a", ObjectiveArgument.objective())
+                                                        .then(Commands.argument("bHolder", ScoreHolderArgument.scoreHolder())
+                                                                .then(Commands.argument("b", ObjectiveArgument.objective()).executes(context -> {
+                                                                            double result = java.lang.Math.max(Utils.getScore(context.getSource().getServer(), ScoreHolderArgument.getName(context, "aHolder"), ObjectiveArgument.getObjective(context, "a")),
+                                                                                    Utils.getScore(context.getSource().getServer(), ScoreHolderArgument.getName(context, "bHolder"), ObjectiveArgument.getObjective(context, "b")));
+                                                                            Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.math.success", String.valueOf(result));
+                                                                            return (int) result;
+                                                                        })
+                                                                        .then(Commands.argument("targetTarget", ResourceLocationArgument.id())
+                                                                                .then(Commands.argument("targetPath", NbtPathArgument.nbtPath()).executes(context -> {
+                                                                                    double result = java.lang.Math.max(Utils.getScore(context.getSource().getServer(), ScoreHolderArgument.getName(context, "aHolder"), ObjectiveArgument.getObjective(context, "a")), Utils.getScore(context.getSource().getServer(), ScoreHolderArgument.getName(context, "bHolder"), ObjectiveArgument.getObjective(context, "b")));
+                                                                                    Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.math.success", String.valueOf(result));
+                                                                                    return (int) result;
+                                                                                })))))))))
+                        .then(Commands.literal("min")
+                                .then(Commands.literal("storage")
+                                        .then(Commands.argument("sourceTargetA", ResourceLocationArgument.id())
+                                                .then(Commands.argument("sourcePathA", NbtPathArgument.nbtPath())
+                                                        .then(Commands.argument("sourceTargetB", ResourceLocationArgument.id())
+                                                                .then(Commands.argument("sourcePathB", NbtPathArgument.nbtPath()).executes(context -> {
+                                                                            double result = java.lang.Math.min(Double.parseDouble(Utils.getData(context, "sourceTargetA", "sourcePathA").getAsString()), Double.parseDouble(Utils.getData(context, "sourceTargetB", "sourcePathB").getAsString()));
+                                                                            Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.math.success", String.valueOf(result));
+                                                                            return (int) result;
+                                                                        })
+                                                                        .then(Commands.argument("targetTarget", ResourceLocationArgument.id())
+                                                                                .then(Commands.argument("targetPath", NbtPathArgument.nbtPath()).executes(context -> {
+                                                                                    double result = java.lang.Math.min(Double.parseDouble(Utils.getData(context, "sourceTargetA", "sourcePathA").getAsString()),
+                                                                                            Double.parseDouble(Utils.getData(context, "sourceTargetB", "sourcePathB").getAsString()));
+                                                                                    Utils.setData(context, "targetTarget", "targetPath", DoubleTag.valueOf(result));
+                                                                                    Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.math.success", String.valueOf(result));
+                                                                                    return (int) result;
+                                                                                }))))))))
+                                .then(Commands.literal("num")
+                                        .then(Commands.argument("a", DoubleArgumentType.doubleArg())
+                                                .then(Commands.argument("b", DoubleArgumentType.doubleArg()).executes(context -> {
+                                                            double result = java.lang.Math.min(DoubleArgumentType.getDouble(context, "a"), DoubleArgumentType.getDouble(context, "b"));
+                                                            Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.math.success", String.valueOf(result));
+                                                            return (int) result;
+                                                        })
+                                                        .then(Commands.argument("targetTarget", ResourceLocationArgument.id())
+                                                                .then(Commands.argument("targetPath", NbtPathArgument.nbtPath()).executes(context -> {
+                                                                    double result = java.lang.Math.min(DoubleArgumentType.getDouble(context, "a"), DoubleArgumentType.getDouble(context, "b"));
+                                                                    Utils.setData(context, "targetTarget", "targetPath", DoubleTag.valueOf(result));
+                                                                    Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.math.success", String.valueOf(result));
+                                                                    return (int) result;
+                                                                }))))))
+                                .then(Commands.literal("score")
+                                        .then(Commands.argument("aHolder", ScoreHolderArgument.scoreHolder())
+                                                .then(Commands.argument("a", ObjectiveArgument.objective())
+                                                        .then(Commands.argument("bHolder", ScoreHolderArgument.scoreHolder())
+                                                                .then(Commands.argument("b", ObjectiveArgument.objective()).executes(context -> {
+                                                                            double result = java.lang.Math.min(Utils.getScore(context.getSource().getServer(), ScoreHolderArgument.getName(context, "aHolder"), ObjectiveArgument.getObjective(context, "a")),
+                                                                                    Utils.getScore(context.getSource().getServer(), ScoreHolderArgument.getName(context, "bHolder"), ObjectiveArgument.getObjective(context, "b")));
+                                                                            Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.math.success", String.valueOf(result));
+                                                                            return (int) result;
+                                                                        })
+                                                                        .then(Commands.argument("targetTarget", ResourceLocationArgument.id())
+                                                                                .then(Commands.argument("targetPath", NbtPathArgument.nbtPath()).executes(context -> {
+                                                                                    double result = java.lang.Math.min(Utils.getScore(context.getSource().getServer(), ScoreHolderArgument.getName(context, "aHolder"), ObjectiveArgument.getObjective(context, "a")),
+
+                                                                                            Utils.getScore(context.getSource().getServer(), ScoreHolderArgument.getName(context, "bHolder"), ObjectiveArgument.getObjective(context, "b")));
+                                                                                    Utils.setData(context, "targetTarget", "targetPath", DoubleTag.valueOf(result));
+                                                                                    Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.math.success", String.valueOf(result));
+                                                                                    return (int) result;
+                                                                                })))))))))
+                        .then(Commands.literal("abs")
+                                .then(Commands.literal("storage")
+                                        .then(Commands.argument("sourceTarget", ResourceLocationArgument.id())
+                                                .then(Commands.argument("sourcePath", NbtPathArgument.nbtPath()).executes(context -> {
+                                                            double result = java.lang.Math.abs(Double.parseDouble(Utils.getData(context, "sourceTarget", "sourcePath").getAsString()));
+                                                            Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.math.success", String.valueOf(result));
+                                                            return (int) result;
+                                                        })
+                                                        .then(Commands.argument("targetTarget", ResourceLocationArgument.id())
+                                                                .then(Commands.argument("targetPath", NbtPathArgument.nbtPath()).executes(context -> {
+                                                                    double result = java.lang.Math.abs(Double.parseDouble(Utils.getData(context, "sourceTarget", "sourcePath").getAsString()));
+                                                                    Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.math.success", String.valueOf(result));
+                                                                    Utils.setData(context, "targetTarget", "targetPath", DoubleTag.valueOf(result));
+                                                                    return (int) result;
+                                                                }))))))
+                                .then(Commands.literal("score")
+                                        .then(Commands.argument("baseHolder", ScoreHolderArgument.scoreHolder())
+                                                .then(Commands.argument("baseScore", ObjectiveArgument.objective()).executes(context -> {
+                                                            double result = java.lang.Math.abs(Utils.getScore(context.getSource().getServer(), ScoreHolderArgument.getName(context, "baseHolder"), ObjectiveArgument.getObjective(context, "baseScore")));
+                                                            Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.math.success", String.valueOf(result));
+                                                            return (int) result;
+                                                        })
+                                                        .then(Commands.argument("targetTarget", ResourceLocationArgument.id())
+                                                                .then(Commands.argument("targetPath", NbtPathArgument.nbtPath()).executes(context -> {
+                                                                    double result = java.lang.Math.abs(Utils.getScore(context.getSource().getServer(), ScoreHolderArgument.getName(context, "baseHolder"), ObjectiveArgument.getObjective(context, "baseScore")));
+                                                                    Utils.setData(context, "targetTarget", "targetPath", DoubleTag.valueOf(result));
+                                                                    Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.math.success", String.valueOf(result));
+                                                                    return (int) result;
+                                                                }))))))
+                                .then(Commands.literal("num")
+                                        .then(Commands.argument("baseNum", DoubleArgumentType.doubleArg()).executes(context -> {
+                                                    double result = java.lang.Math.abs(DoubleArgumentType.getDouble(context, "baseNum"));
+                                                    Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.math.success", String.valueOf(result));
+                                                    return (int) result;
+                                                })
+                                                .then(Commands.argument("targetTarget", ResourceLocationArgument.id())
+                                                        .then(Commands.argument("targetPath", NbtPathArgument.nbtPath()).executes(context -> {
+                                                            double result = java.lang.Math.abs(DoubleArgumentType.getDouble(context, "baseNum"));
+                                                            Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.math.success", String.valueOf(result));
+                                                            Utils.setData(context, "targetTarget", "targetPath", DoubleTag.valueOf(result));
+                                                            return (int) result;
+                                                        }))))))
+                        .then(Commands.literal("pow")
+                                .then(Commands.literal("storage")
+                                        .then(Commands.argument("sourceTargetA", ResourceLocationArgument.id())
+                                                .then(Commands.argument("sourcePathA", NbtPathArgument.nbtPath())
+                                                        .then(Commands.argument("sourceTargetB", ResourceLocationArgument.id())
+                                                                .then(Commands.argument("sourcePathB", NbtPathArgument.nbtPath()).executes(context -> {
+                                                                            double result = java.lang.Math.pow(Double.parseDouble(Utils.getData(context, "sourceTargetA", "sourcePathA").getAsString()), Double.parseDouble(Utils.getData(context, "sourceTargetB", "sourcePathB").getAsString()));
+                                                                            Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.math.success", String.valueOf(result));
+                                                                            return (int) result;
+                                                                        })
+                                                                        .then(Commands.argument("targetTarget", ResourceLocationArgument.id())
+                                                                                .then(Commands.argument("targetPath", NbtPathArgument.nbtPath()).executes(context -> {
+                                                                                    double result = java.lang.Math.pow(Double.parseDouble(Utils.getData(context, "sourceTargetA", "sourcePathA").getAsString()),
+                                                                                            Double.parseDouble(Utils.getData(context, "sourceTargetB", "sourcePathB").getAsString()));
+                                                                                    Utils.setData(context, "targetTarget", "targetPath", DoubleTag.valueOf(result));
+                                                                                    Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.math.success", String.valueOf(result));
+                                                                                    return (int) result;
+                                                                                }))))))))
+                                .then(Commands.literal("num")
+                                        .then(Commands.argument("baseNum", DoubleArgumentType.doubleArg())
+                                                .then(Commands.argument("exponent", DoubleArgumentType.doubleArg()).executes(context -> {
+                                                            double result = java.lang.Math.pow(DoubleArgumentType.getDouble(context, "baseNum"), DoubleArgumentType.getDouble(context, "exponent"));
+                                                            Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.math.success", String.valueOf(result));
+                                                            return (int) result;
+                                                        })
+                                                        .then(Commands.argument("targetTarget", ResourceLocationArgument.id())
+                                                                .then(Commands.argument("targetPath", NbtPathArgument.nbtPath()).executes(context -> {
+                                                                    double result = java.lang.Math.pow(DoubleArgumentType.getDouble(context, "baseNum"), DoubleArgumentType.getDouble(context, "exponent"));
+                                                                    Utils.setData(context, "targetTarget", "targetPath", DoubleTag.valueOf(result));
+                                                                    Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.math.success", String.valueOf(result));
+                                                                    return (int) result;
+                                                                }))))))
+                                .then(Commands.literal("score")
+                                        .then(Commands.argument("baseHolder", ScoreHolderArgument.scoreHolder())
+                                                .then(Commands.argument("baseScore", ObjectiveArgument.objective())
+                                                        .then(Commands.argument("exponentHolder", ScoreHolderArgument.scoreHolder())
+                                                                .then(Commands.argument("exponentScore", ObjectiveArgument.objective()).executes(context -> {
+                                                                            double result = java.lang.Math.pow(Utils.getScore(context.getSource().getServer(), ScoreHolderArgument.getName(context, "baseHolder"), ObjectiveArgument.getObjective(context, "baseScore")),
+                                                                                    Utils.getScore(context.getSource().getServer(), ScoreHolderArgument.getName(context, "exponentHolder"), ObjectiveArgument.getObjective(context, "exponentScore")));
+                                                                            Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.math.success", String.valueOf(result));
+                                                                            return (int) result;
+                                                                        })
+                                                                        .then(Commands.argument("targetTarget", ResourceLocationArgument.id())
+                                                                                .then(Commands.argument("targetPath", NbtPathArgument.nbtPath()).executes(context -> {
+                                                                                    double result = java.lang.Math.pow(Utils.getScore(context.getSource().getServer(), ScoreHolderArgument.getName(context, "baseHolder"), ObjectiveArgument.getObjective(context, "baseScore")),
+
+                                                                                            Utils.getScore(context.getSource().getServer(), ScoreHolderArgument.getName(context, "exponentHolder"), ObjectiveArgument.getObjective(context, "exponentScore")));
+                                                                                    Utils.setData(context, "targetTarget", "targetPath", DoubleTag.valueOf(result));
+                                                                                    Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.math.success", String.valueOf(result));
+                                                                                    return (int) result;
+                                                                                })))))))))
+                        .then(Commands.literal("sqrt")
+                                .then(Commands.literal("storage")
+                                        .then(Commands.argument("sourceTarget", ResourceLocationArgument.id())
+                                                .then(Commands.argument("sourcePath", NbtPathArgument.nbtPath()).executes(context -> {
+                                                            double result = java.lang.Math.sqrt(Double.parseDouble(Utils.getData(context, "sourceTarget", "sourcePath").getAsString()));
+                                                            Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.math.success", String.valueOf(result));
+                                                            return (int) result;
+                                                        })
+                                                        .then(Commands.argument("targetTarget", ResourceLocationArgument.id())
+                                                                .then(Commands.argument("targetPath", NbtPathArgument.nbtPath()).executes(context -> {
+                                                                    double result = java.lang.Math.sqrt(Double.parseDouble(Utils.getData(context, "sourceTarget", "sourcePath").getAsString()));
+                                                                    Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.math.success", String.valueOf(result));
+                                                                    Utils.setData(context, "targetTarget", "targetPath", DoubleTag.valueOf(result));
+                                                                    return (int) result;
+                                                                }))))))
+                                .then(Commands.literal("score")
+                                        .then(Commands.argument("baseHolder", ScoreHolderArgument.scoreHolder())
+                                                .then(Commands.argument("baseScore", ObjectiveArgument.objective()).executes(context -> {
+                                                            double result = java.lang.Math.sqrt(Utils.getScore(context.getSource().getServer(), ScoreHolderArgument.getName(context, "baseHolder"), ObjectiveArgument.getObjective(context, "baseScore")));
+                                                            Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.math.success", String.valueOf(result));
+                                                            return (int) result;
+                                                        })
+                                                        .then(Commands.argument("targetTarget", ResourceLocationArgument.id())
+                                                                .then(Commands.argument("targetPath", NbtPathArgument.nbtPath()).executes(context -> {
+                                                                    double result = java.lang.Math.sqrt(Utils.getScore(context.getSource().getServer(), ScoreHolderArgument.getName(context, "baseHolder"), ObjectiveArgument.getObjective(context, "baseScore")));
+                                                                    Utils.setData(context, "targetTarget", "targetPath", DoubleTag.valueOf(result));
+                                                                    Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.math.success", String.valueOf(result));
+                                                                    return (int) result;
+                                                                }))))))
+                                .then(Commands.literal("num")
+                                        .then(Commands.argument("baseNum", DoubleArgumentType.doubleArg()).executes(context -> {
+                                                    double result = java.lang.Math.sqrt(DoubleArgumentType.getDouble(context, "baseNum"));
+                                                    Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.math.success", String.valueOf(result));
+                                                    return (int) result;
+                                                })
+                                                .then(Commands.argument("targetTarget", ResourceLocationArgument.id())
+                                                        .then(Commands.argument("targetPath", NbtPathArgument.nbtPath()).executes(context -> {
+                                                            double result = java.lang.Math.sqrt(DoubleArgumentType.getDouble(context, "baseNum"));
+                                                            Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.math.success", String.valueOf(result));
+                                                            Utils.setData(context, "targetTarget", "targetPath", DoubleTag.valueOf(result));
+                                                            return (int) result;
+                                                        })))))
                         )
         );
-    }
-
-    private static ArgumentBuilder<CommandSourceStack, ?> buildMathCommand(String commandName, BiFunction<Double, Double, Double> executor) {
-        return Commands.literal(commandName)
-                .then(Commands.literal("score").then(buildCommand(executor)))
-                .then(Commands.literal("storage").then(buildCommand(executor)))
-                .then(Commands.literal("num").then(buildCommand(executor)));
-    }
-
-    private static ArgumentBuilder<CommandSourceStack, ?> buildCommand(BiFunction<Double, Double, Double> executor) {
-        return Commands.argument("base", DoubleArgumentType.doubleArg())
-                .executes(context -> execute(executor, context))
-                .then(Commands.argument("target", ResourceLocationArgument.id())
-                        .then(Commands.argument("path", NbtPathArgument.nbtPath())
-                                .executes(context -> execute(executor, context))
-                                .then(Commands.argument("target", ResourceLocationArgument.id())
-                                        .then(Commands.argument("path", NbtPathArgument.nbtPath())
-                                                .executes(context -> execute(executor, context))
-                                        )
-                                )
-                        )
-                );
-    }
-
-    private static int execute(BiFunction<Double, Double, Double> executor, CommandContext<CommandSourceStack> context) {
-        try {
-            double base = DoubleArgumentType.getDouble(context, "base");
-            double value = Double.parseDouble(Utils.getData(context, "sourceTarget", "sourcePath").getAsString());
-            double result = executor.apply(base, value);
-            Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.math.success", String.valueOf(result));
-            if (context.getArgument("targetPath", String.class) != null) {
-                Utils.setData(context, "targetTarget", "targetPath", DoubleTag.valueOf(result));
-            }
-            return (int) result;
-        } catch (CommandSyntaxException e) {
-            Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.math.error", true, e.getMessage());
-            return 0;
-        }
-    }
-
-    private static double acos(double base, double value) {
-        return Math.acos(value);
-    }
-
-    private static double tan(double base, double value) {
-        return Math.tan(value);
-    }
-
-    private static double sin(double base, double value) {
-        return Math.sin(value);
-    }
-
-    private static double cos(double base, double value) {
-        return Math.cos(value);
-    }
-
-    private static double max(double base, double value) {
-        return Math.max(base, value);
-    }
-
-    private static double min(double base, double value) {
-        return Math.min(base, value);
-    }
-
-    private static double abs(double base, double value) {
-        return Math.abs(value);
-    }
-
-    private static double pow(double base, double value) {
-        return Math.pow(base, value);
-    }
-
-    private static double asin(double base, double value) {
-        return Math.asin(value);
-    }
-
-    private static double sqrt(double base, double value) {
-        return Math.sqrt(value);
-    }
-
-    private static double atan(double base, double value) {
-        return Math.atan(value);
-    }
-
-    private static double sinh(double base, double value) {
-        return Math.sinh(value);
-    }
-
-    private static double cosh(double base, double value) {
-        return Math.cosh(value);
-    }
-
-    private static double tanh(double base, double value) {
-        return Math.tanh(value);
-    }
-
-    private static double loge(double base, double value) {
-        return Math.log(value);
-    }
-
-    private static double log10(double base, double value) {
-        return Math.log10(value);
     }
 }

@@ -45,7 +45,7 @@ public static ForgeConfigSpec.ConfigValue<String> getConfig(int i){
                         .then(Commands.literal("get")
                                 .then(Commands.literal(String.valueOf(key))
                                         .executes(context -> {
-                                            Utils.sendCdFeedback(context, getConfig(key).get());
+                                            Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.keycd.get",String.valueOf(key),getConfig(key).get());
                                             return 1;
                                         })
                                 )
@@ -55,7 +55,7 @@ public static ForgeConfigSpec.ConfigValue<String> getConfig(int i){
                                         .executes(context -> {
                                             getConfig(key).set(StringArgumentType.getString(context, "command"));
                                             getConfig(key).save();
-                                            Utils.sendCdFeedback(context, "succeed");
+                                            Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.keycd.set",String.valueOf(key));
                                             return 1;
                                         })
                                 )
