@@ -14,7 +14,7 @@ public class CommandRegister {
     public static void onServerStaring(RegisterCommandsEvent event) {
         dispatcher = event.getDispatcher();
         Hurt.register();
-        Math.register();
+        MathCommand.register();
         Player.register();
         Random.register();
         RealityTime.register();
@@ -25,5 +25,6 @@ public class CommandRegister {
         DataString.register();
         Explode.register();
         Game.register();
+        KeyBinding.register();
     }
 }

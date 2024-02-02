@@ -28,7 +28,6 @@ public class Run {
                                         .then(Commands.argument("path", NbtPathArgument.nbtPath()).executes(context -> {
                                             String cmd;
                                             if (!(cmd = Utils.getData(context, "target", "path").getAsString()).equals("")) {
-
                                                 context.getSource().getServer().getCommands().performCommand(context.getSource(), cmd);
                                                 Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.run.single.success", true);
                                                 return 1;

@@ -55,8 +55,15 @@
 "mcd.com.fho4565.command.game.freeMemory": "当前JVM剩余内存为：%s",
 "mcd.com.fho4565.command.game.totalMemory": "当前JVM总内存为：%s",
 "mcd.com.fho4565.command.game.maxMemory": "当前JVM最大内存为：%s",
-"mcd.com.fho4565.command.game.gc.success": "当前世界的tps为：%s",
+"mcd.com.fho4565.command.game.gc": "垃圾收集器运行成功！",
 
+"mcd.com.fho4565.prompt.keybinds": "More Commands保留键",
+"mcd.com.fho4565.prompt.keybind1": "保留键1",
+"mcd.com.fho4565.prompt.keybind2": "保留键2",
+"mcd.com.fho4565.prompt.keybind3": "保留键3",
+"mcd.com.fho4565.prompt.keybind4": "保留键4",
+"mcd.com.fho4565.prompt.keybind5": "保留键5",
+"mcd.com.fho4565.prompt.keybind6": "保留键6",
 
 "mcd.com.fho4565.help.btn.left": "上一页",
 "mcd.com.fho4565.help.btn.right": "下一页",
@@ -159,7 +166,7 @@
 "mcd.com.fho4565.help.page12.line4":"§0spawnY：§2§o获取世界出生点的Y坐标",
 "mcd.com.fho4565.help.page12.line5":"§0spawnZ：§2§o获取世界出生点的Z坐标",
 "mcd.com.fho4565.help.page12.line6":"§0getWorldPath：§2§o获取游戏文件夹路径",
-"mcd.com.fho4565.help.page12.line11":"§3执行后：获取世界信息",
+"mcd.com.fho4565.help.page12.line7":"§3执行后：获取世界信息",
 
 "mcd.com.fho4565.help.page13.line0":"§5§l/game",
 "mcd.com.fho4565.help.page13.line1":"§9格式：/game <type>",
@@ -169,5 +176,10 @@
 "mcd.com.fho4565.help.page13.line5":"§0version：§2§o获取游戏修正版本号",
 "mcd.com.fho4565.help.page13.line6":"§0tickTime：§2§o获取世界的tickTime",
 "mcd.com.fho4565.help.page13.line7":"§0tps：§2§o获取世界的tps",
-"mcd.com.fho4565.help.page13.line8":"§3执行后：获取游戏信息"
+"mcd.com.fho4565.help.page13.line8":"§0freeMemory：§2§o获取当前JVM剩余内存",
+"mcd.com.fho4565.help.page13.line9":"§0totalMemory：§2§o获取当前JVM总内存",
+"mcd.com.fho4565.help.page13.line10":"§0maxMemory：§2§o获取当前JVM最大内存",
+"mcd.com.fho4565.help.page13.line11":"§0gc：§2§o运行Java虚拟机的垃圾回收器",
+"mcd.com.fho4565.help.page13.line12":"§c注意事项：当你知道你在干什么或者你被要求这么做时才能运行gc！",
+"mcd.com.fho4565.help.page13.line13":"§3执行后：获取游戏信息"
 }

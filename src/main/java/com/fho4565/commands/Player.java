@@ -95,10 +95,12 @@ public class Player {
                                 .then(Commands.literal("currentXp")
                                         .executes(context -> {
                                             ServerPlayer player = EntityArgument.getPlayer(context, "player");
+
+                                            Utils.sendCdFeedback(context,player.totalExperience+"|||");
                                             Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.player.currentXp",
                                                     EntityArgument.getPlayer(context, "player").getName().getString(),
-                                                    String.valueOf(player.totalExperience));
-                                            return player.totalExperience;
+                                                    String.valueOf(player.experienceProgress));
+                                            return (int) player.experienceProgress;
                                         }))
 
                         ));

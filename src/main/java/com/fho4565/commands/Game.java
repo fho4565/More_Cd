@@ -43,17 +43,17 @@ public class Game {
                         }))
                         .then(Commands.literal("freeMemory").executes(context -> {
                             long mem = Runtime.getRuntime().freeMemory();
-                            Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.game", String.valueOf(mem));
+                            Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.game.freeMemory", String.valueOf(mem));
                             return (int) mem;
                         }))
                         .then(Commands.literal("totalMemory").executes(context -> {
                             long mem = Runtime.getRuntime().totalMemory();
-                            Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.game", String.valueOf(mem));
+                            Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.game.totalMemory", String.valueOf(mem));
                             return (int) mem;
                         }))
                         .then(Commands.literal("maxMemory").executes(context -> {
                             long mem = Runtime.getRuntime().maxMemory();
-                            Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.game", String.valueOf(mem));
+                            Utils.sendTCdFeedback(context, "mcd.com.fho4565.command.game.maxMemory", String.valueOf(mem));
                             return (int) mem;
                         }))
                         .then(Commands.literal("gc").executes(context -> {
